@@ -1,0 +1,7 @@
+# Homebrew
+export PATH="<%= @homebrew_bin_path %>:$PATH"
+
+# rbenv
+export RBENV_ROOT="<%= @rbenv_root_path %>"
+export PATH="${RBENV_ROOT}/bin:$PATH"
+[[ -d "${RBENV_ROOT}/bin" ]] && eval "$(rbenv init -)"
