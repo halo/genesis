@@ -7,6 +7,7 @@ template bash_profile_path do
   source 'bash_profile.erb'
   variables({
     :homebrew_bin_path => homebrew_bin_path,
+    :rbenv_excutable => File.join(homebrew_bin_path, 'rbenv'),
     :rbenv_root_path => node[:biosphere][:rbenv][:root],
   })
 end
