@@ -1,6 +1,6 @@
-# Homebrew
+# Load Homebrew binaries
 export PATH="<%= @homebrew_bin_path %>:$PATH"
 
-# rbenv
+# Initialize rbenv
 export RBENV_ROOT="<%= @rbenv_root_path %>"
 hash <%= @rbenv_excutable %> && eval "$(<%= @rbenv_excutable %> init -)"
