@@ -1,4 +1,9 @@
-homebrew_path = Pathname.new File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebrew')
+require 'pathname'
+
+homebrew_path       = Pathname.new node[:biosphere][:homebrew][:root]
+homebrew_revision   = node[:biosphere][:homebrew][:revision]
+homebrew_bin_path   = homebrew_path.join 'bin'
+homebrew_executable = homebrew_bin_path.join('brew')
 
 # –––––––––––––––––––––
 # Homebrew Installation
@@ -10,12 +15,10 @@ else
   logg %{Ensuring correct homebrew revision...}
   git homebrew_path.to_s do
     repository 'git://github.com/mxcl/homebrew.git'
-    revision node[:biosphere][:homebrew][:revision]
+    revision homebrew_revision
     action :sync
   end
 end
-
-brew_executable = homebrew_path.join('bin/brew')
 
 # –––––––––––––––––
 # Homebrew Formulae
@@ -33,7 +36,7 @@ node[:biosphere][:homebrew][:formulae].each do |formula|
     else
       logg %{Installing #{formula} via homebrew...}
       bash "install-#{formula}" do
-        code "#{brew_executable} install #{formula}"
+        code "#{homebrew_executable} install #{formula}"
       end
     end
   end
@@ -71,7 +74,7 @@ if node[:biosphere][:homebrew][:formulae].include? 'mysql'
       bash "initialize-mysql" do
         cwd ENV['HOME']
         environment({ 'HOME' => ENV['HOME'] })
-        code %{mysql_install_db --verbose --user=`whoami` --basedir="$(#{brew_executable} --prefix mysql)" --datadir=#{homebrew_path}/var/mysql --tmpdir=/tmp}
+        code %{mysql_install_db --verbose --user=`whoami` --basedir="$(#{homebrew_executable} --prefix mysql)" --datadir=#{homebrew_path}/var/mysql --tmpdir=/tmp}
       end
     end
   end
