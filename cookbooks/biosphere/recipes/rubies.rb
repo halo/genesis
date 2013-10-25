@@ -1,6 +1,6 @@
 homebrew_bins_path = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebrew', 'bin')
-rbenv_executable = File.join(homebrew_bins_path, 'rbenv')
-rbenv_root = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'rbenv')
+rbenv_executable   = File.join(homebrew_bins_path, 'rbenv')
+rbenv_root         = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'rbenv')
 
 logg %{Ensuring rbenv root directory...}
 directory rbenv_root
