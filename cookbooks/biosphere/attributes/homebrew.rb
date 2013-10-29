@@ -1,5 +1,5 @@
 default[:biosphere][:homebrew][:root]     = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebrew')
-default[:biosphere][:homebrew][:revision] = 'a012d0bcc1fa353eed823072d75d3cc80aa3fe25'
+default[:biosphere][:homebrew][:revision] = '7947b538f0d293d786204a56135a71bce1c2f35d'
 
 default[:biosphere][:homebrew][:formulae] = %w{
   autoconf
