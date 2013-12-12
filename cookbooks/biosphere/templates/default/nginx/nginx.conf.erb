@@ -1,0 +1,40 @@
+# We would like to start nginx via Foreman so we must have it running in foreground.
+daemon off;
+
+# To avoid multi-thread problems, you might want to keep this at 1.
+worker_processes  1;
+
+# Let's exclude a potential error source by increasing our I/O limits to the maximum.
+worker_rlimit_nofile 32768;
+events {
+  worker_connections 24576;
+}
+
+http {
+
+  # Passenger uses "production" by default. We don't want that.
+  rack_env development;
+
+  passenger_root <%= @passenger_root %>;
+  passenger_ruby <%= @passenger_ruby %>;
+
+  sendfile    on;
+  tcp_nopush  on;
+  tcp_nodelay on;
+
+  include       mime.types;
+  default_type  application/octet-stream;
+
+  gzip         on;
+  gzip_disable "msie6";
+
+  gzip_proxied    any;
+  gzip_min_length 500;
+  gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+  # Enforce loading the files in alphabetical order
+  <% ('a' .. 'z').each do |letter| %>
+    include <%= @nginx_configs_path.join("#{letter}*.conf") %>;
+  <% end %>
+
+}

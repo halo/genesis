@@ -1,0 +1,16 @@
+# Bind
+network.host: 127.0.0.1
+
+# Must be unique within the LAN
+cluster.name: elasticsearch_<%= ENV['USER'] %>
+
+# Never guess the mapping of an index.
+index.mapper.dynamic: false
+
+# For bulk imports
+http.max_content_length: 200mb
+
+# Paths
+path.data: <%= @elasticsearch_var_path.join 'elasticsearch' %>
+path.logs: <%= @elasticsearch_var_path.join 'log/elasticsearch' %>
+path.plugins: <%= @elasticsearch_var_path.join 'lib/elasticsearch/plugins' %>

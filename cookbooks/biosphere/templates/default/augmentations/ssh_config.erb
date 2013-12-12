@@ -1,0 +1,13 @@
+Host *
+  ServerAliveInterval 5
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  SendEnv RMATE_*
+  IdentityFile <%= @chef_key_path %>
+  IdentitiesOnly yes
+  User chef
+
+Host <%= Github.host %>
+  HostName github.com
+  IdentityFile <%= @github_key_path %>
+  User git

@@ -1,0 +1,22 @@
+# Set UTF-8 as default encoding for all Ruby applications
+export RUBYOPT=-Ku
+
+# Load Homebrew binaries
+export PATH="<%= @homebrew_bin_path %>:$PATH"
+export PATH="<%= @homebrew_sbin_path %>:$PATH"
+
+# Initialize rbenv
+export RBENV_ROOT="<%= @rbenv_root_path %>"
+test -x <%= @rbenv_excutable %> && eval "$(<%= @rbenv_excutable %> init -)"
+
+# Configuring PostgreSQL
+export PGDATA="$(brew --prefix)/var/postgres"
+
+# Git fancy
+if [[ -s <%= @homebrew_etc_path %>/bash_completion.d/git-prompt.sh ]]; then
+  source <%= @homebrew_etc_path %>/bash_completion.d/git-prompt.sh
+  export PS1='\w\$$(__git_ps1) '
+fi
+
+# Making sure the exit code of .bash_profile is 0
+echo &> /dev/null
