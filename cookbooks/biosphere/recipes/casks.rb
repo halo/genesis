@@ -21,7 +21,6 @@ node[:biosphere][:cask][:apps].each do |app|
     if offline?
       logg(%{Skipping installation of cask <b>#{app}</b> because I'm not online.}) { color :yellow }
     else
-      raise homebrew_executable.inspect
       logg %{Installing #{app} via cask...}
       bash "install-cask-#{app}" do
         code "#{homebrew_executable} cask install #{app} --caskroom='#{caskroom_path}' --appdir='#{applinks_path}'"
