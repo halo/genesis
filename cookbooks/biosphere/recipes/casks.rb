@@ -1,5 +1,7 @@
-homebrew_path       = Pathname.new node[:biosphere][:homebrew][:root]
-homebrew_executable = homebrew_path.join('bin/brew')
+homebrew_path       = Pathname.new(node[:biosphere][:homebrew][:root])
+homebrew_bin_path   = homebrew_path.join 'bin'
+homebrew_sbin_path  = homebrew_path.join 'sbin'
+homebrew_executable = homebrew_bin_path.join('brew')
 
 caskroom_path = Pathname.new node[:biosphere][:cask][:caskroom]
 applinks_path = Pathname.new node[:biosphere][:cask][:applinks]
@@ -17,7 +19,10 @@ node[:biosphere][:cask][:apps].each do |app|
     else
       logg %{Installing #{app} via cask...}
       bash "install-cask-#{app}" do
-        code "#{homebrew_executable} cask install #{app} --caskroom='#{caskroom_path}' --appdir='#{applinks_path}'"
+        environment({
+          'HOMEBREW_CASK_OPTS' => "--caskroom='#{caskroom_path}' --appdir='#{applinks_path}'",
+        })
+        code %{export PATH="#{homebrew_bin_path}:#{homebrew_sbin_path}:$PATH" && #{homebrew_executable} cask install #{app}}
       end
     end
   end
