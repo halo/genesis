@@ -21,7 +21,7 @@ else
 
   if homebrew_executable.executable?
     current_taps = `#{homebrew_executable} tap`.split
-    wanted_taps = %w{ phinze/homebrew-cask }
+    wanted_taps = %w{ phinze/cask }
 
     wanted_taps.each do |tap|
       if current_taps.include? tap
