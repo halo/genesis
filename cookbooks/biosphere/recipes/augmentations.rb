@@ -9,8 +9,8 @@ homebrew_sbin_path = homebrew_path.join 'sbin'
 homebrew_etc_path  = homebrew_path.join 'etc'
 rbenv_path         = Pathname.new node[:biosphere][:rbenv][:root]
 rbenv_executable   = homebrew_bin_path.join('rbenv')
-cask_caskroom_path = homebrew_etc_path.join('caskroom')
-cask_applinks_path = homebrew_etc_path.join('caskapps')
+cask_caskroom_path = Pathname.new node[:biosphere][:cask][:caskroom]
+cask_applinks_path = Pathname.new node[:biosphere][:cask][:applinks]
 
 template bash_profile_path do
   source 'augmentations/bash_profile.erb'
