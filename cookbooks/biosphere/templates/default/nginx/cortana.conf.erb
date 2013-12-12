@@ -11,7 +11,7 @@
     passenger_enabled on;
 
     # Infer repository location from domain name.
-    set $_root <%= projects_path %>/$1/public;
+    set $_root <%= project_path %>/$1/public;
     root $_root;
 
     set $real_host  $host;
