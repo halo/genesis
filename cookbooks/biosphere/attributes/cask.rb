@@ -12,7 +12,7 @@ default[:biosphere][:cask][:apps] = %w{
   qlimagesize
   qlmarkdown
   qlprettypatch
-  qlsteven
+  qlstephen
   quicksilver
   textmate
   tor-browser

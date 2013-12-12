@@ -6,17 +6,11 @@ applinks_path = Pathname.new node[:biosphere][:cask][:applinks]
 
 node[:biosphere][:cask][:apps].each do |app|
 
-  app_path = homebrew_path.join "Cellar/#{app.split.first}"
+  app_path = caskroom_path.join app
 
-  if false
+  if app_path.directory?
     logg(%{Skipping installation of <b>#{app}</b> via homebrew because it already exists.}) { color :yellow }
 
-    if node[:biosphere][:homebrew][:edge_appe].include?(app)
-      logg %{Ensuring cutting-edge #{app} via homebrew...}
-      bash "upgrade-#{app}" do
-        code "#{homebrew_executable} upgrade #{app} || echo 'Probably already up-to-date...' "
-      end
-    end
   else
     if offline?
       logg(%{Skipping installation of cask <b>#{app}</b> because I'm not online.}) { color :yellow }
