@@ -3,6 +3,6 @@ default[:biosphere][:rbenv][:rubies]     = %w{ 2.0.0-p247 }
 
 if %w{ red blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:biosphere][:rbenv][:rubies] += %w{
-    1.8.7-p358
+
   }
 end

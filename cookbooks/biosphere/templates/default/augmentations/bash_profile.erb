@@ -4,6 +4,7 @@ export RUBYOPT=-Ku
 # Load Homebrew binaries
 export PATH="<%= @homebrew_bin_path %>:$PATH"
 export PATH="<%= @homebrew_sbin_path %>:$PATH"
+export HOMEBREW_CASK_OPTS="--caskroom='<%= @cask_caskroom_path %>' --appdir='<%= @cask_applinks_path %>'"
 
 # Initialize rbenv
 export RBENV_ROOT="<%= @rbenv_root_path %>"

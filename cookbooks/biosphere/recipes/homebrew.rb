@@ -211,3 +211,28 @@ if node[:biosphere][:homebrew][:formulae].include? 'postgresql'
   end
 
 end
+
+# Homebrew Cask
+
+if node[:biosphere][:homebrew][:formulae].include? 'brew-cask'
+
+  if homebrew_executable.executable?
+    brew_cask_repo = `#{homebrew_executable} info brew-cask | grep Cellar`.split.first
+    patch_path = '/tmp/caskroom.patch'
+
+    if brew_cask_repo != ''
+
+      cookbook_file patch_path do
+        mode '0644'
+        source 'brew-cask/caskroom.patch'
+      end
+
+      logg %{Patching brew cask so that we can configure the directories...}
+      bash "patch-brew-cask" do
+        code "cd #{brew_cask_repo} && patch --batch --forward --strip 1 < #{patch_path} || echo 'this command never fails ;)'"
+      end
+
+    end
+  end
+
+end
