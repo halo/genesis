@@ -11,7 +11,7 @@ node[:biosphere][:cask][:apps].each do |app|
   app_path = caskroom_path.join app
 
   if app_path.directory?
-    logg(%{Skipping installation of <b>#{app}</b> via homebrew because it already exists.}) { color :yellow }
+    logg(%{Skipping installation of <b>#{app}</b> via brew cask because it already exists.}) { color :yellow }
 
   else
     if offline?

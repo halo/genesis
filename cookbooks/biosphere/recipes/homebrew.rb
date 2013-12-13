@@ -46,7 +46,7 @@ node[:biosphere][:homebrew][:formulae].each do |formula|
   formula_path = homebrew_path.join "Cellar/#{formula.split.first}"
 
   if formula_path.exist?
-    logg(%{Skipping installation of <b>#{formula}</b> via homebrew because it already exists.}) { color :yellow }
+    logg(%{Skipping configuration of <b>#{formula}</b> via homebrew because it already exists.}) { color :yellow }
 
     if node[:biosphere][:homebrew][:edge_formulae].include?(formula)
       logg %{Ensuring cutting-edge #{formula} via homebrew...}

@@ -1,3 +1,4 @@
+logg %{Setting OS X defaults...}
 
 bash 'System Preferences -> General -> Appearance -> Blue' do
   code %{defaults write NSGlobalDomain AppleAquaColorVariant -int 1}
