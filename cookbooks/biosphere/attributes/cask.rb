@@ -40,7 +40,6 @@ if %w{ red }.include? ENV['BIOSPHERE_ENV_PROFILE']
     keyremap4macbook
     soundflower
     teamviewer
-    xbox360-controller-driver
   }
 end
 
