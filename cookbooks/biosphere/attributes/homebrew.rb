@@ -17,6 +17,7 @@ if %w{ red blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:biosphere][:homebrew][:formulae] += %w{
     imagemagick
     elasticsearch
+    ffmpeg
     imagemagick
     memcached
     phantomjs

@@ -1,23 +1,22 @@
 <% @project_paths.each do |project_path| %>
 
   server {
-    # Catch all *.dev
-    server_name ~^(.*)\.dev$;
+    server_name <%= project_path.basename %>.dev;
 
     # Catch all *.xip.io
-    server_name "~^(.*)(\.\d+){4}\.xip\.io$";
+    server_name "~^(<%= project_path.basename %>)(\.\d+){4}\.xip\.io$";
 
     listen <%= @port %>;
     passenger_enabled on;
 
     # Infer repository location from domain name.
-    set $_root <%= project_path %>/$1/public;
+    set $_root <%= project_path %>/public;
     root $_root;
 
     set $real_host  $host;
     # strip '.1.2.3.4.xip.io' from the host
     if ($real_host ~ '(.*)(\.\d+){4}\.xip\.io$') {
-      set $real_host $1.dev;
+      set $real_host <%= project_path.basename %>.dev;
     }
     # pass the modified host to the app
     proxy_set_header Host $real_host;

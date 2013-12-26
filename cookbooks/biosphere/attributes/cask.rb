@@ -1,5 +1,5 @@
 default[:biosphere][:cask][:caskroom] = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'caskroom')
-default[:biosphere][:cask][:applinks] = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'caskapps')
+default[:biosphere][:cask][:applinks] = Home.path.join('Applications')  # File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'caskapps')
 
 default[:biosphere][:cask][:apps] = %w{
   bitmessage
