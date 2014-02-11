@@ -299,8 +299,11 @@ default[:biosphere][:osx][:settings] = %{
   Applications -> App Store -> Debug Menu
   defaults write com.apple.appstore ShowDebugMenu -bool true
 
-  Applications -> TextMate -> You may reorder my tabs if you must, but don't jump around in the file list
-  defaults write com.macromates.TextMate.preview disableTabReordering -bool NO
+  Applications -> TextMate -> Don't mess with my Tabs
+  defaults write com.macromates.TextMate.preview disableTabReordering -bool YES
+
+  Applications -> TextMate -> Don't jump around in File Browser
+  defaults write com.macromates.TextMate.preview autoRevealFile -bool NO
 
 }
 
