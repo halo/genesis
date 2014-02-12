@@ -305,6 +305,18 @@ default[:biosphere][:osx][:settings] = %{
   Applications -> TextMate -> Don't jump around in File Browser
   defaults write com.macromates.TextMate.preview autoRevealFile -bool NO
 
+  Applications -> TextMate -> Always wrap around search
+  defaults write com.macromates.TextMate.preview findWrapAround -bool YES
+
+  Applications -> TextMate -> Tabs begin at the document window
+  defaults write com.macromates.TextMate.preview tabsAboveDocument -bool YES
+
+  Applications -> TextMate -> Show file browser to the left
+  defaults write com.macromates.TextMate.preview fileBrowserPlacement -string "left"
+
+  Applications -> TextMate -> Always show the tab bar
+  defaults write com.macromates.TextMate.preview disableTabBarCollapsing -bool YES
+
 }
 
 if ENV['SUDO']
