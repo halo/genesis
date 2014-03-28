@@ -29,6 +29,7 @@ if %w{ red blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
     inkscape
     seashore
     sequel-pro
+    adium
   }
 end
 
