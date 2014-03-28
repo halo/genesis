@@ -27,6 +27,7 @@ if %w{ red blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
     icu4c
     phantomjs
     mysql
+    adium
   }
 end
 
