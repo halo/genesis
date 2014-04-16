@@ -27,6 +27,7 @@ if %w{ red blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
     google-chrome
     hipchat
     inkscape
+    flv
     seashore
     sequel-pro
     adium
