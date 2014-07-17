@@ -161,6 +161,8 @@ if node[:biosphere][:homebrew][:formulae].include? 'nginx --with-passenger'
       ~/Code/Projects/shelf/shelf
       ~/Code/Projects/story/story
       ~/Code/Projects/vocay/vocay
+      ~/Code/Projects/vws/vws
+      ~/Code/Projects/vws/vws22
     }.map { |path| Pathname.new(path).expand_path }
 
     template nginx_configs_path.join('cortana.conf').to_s do
