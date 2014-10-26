@@ -2,20 +2,12 @@ default[:biosphere][:cask][:caskroom] = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 
 default[:biosphere][:cask][:applinks] = Home.path.join('Applications')  # File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'caskapps')
 
 default[:biosphere][:cask][:apps] = %w{
-  bitmessage
   cyberduck
   disk-inventory-x
   firefox
-  jsonlook
   keka
   mumble
-  qlimagesize
-  qlmarkdown
-  qlprettypatch
-  qlstephen
-  quicksilver
   textmate
-  tor-browser
   vienna-rss
 }
 
