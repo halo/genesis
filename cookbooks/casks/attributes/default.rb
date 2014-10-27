@@ -20,12 +20,9 @@ if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   }
 end
 
-if %w{ red }.include? ENV['BIOSPHERE_ENV_PROFILE']
+if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
-    handbrake
-    handbrakebatch
-    keyremap4macbook
-    soundflower
+    karabiner
   }
 end
 
