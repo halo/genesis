@@ -1,12 +1,12 @@
-homebrew_path       = Pathname.new(node[:biosphere][:homebrew][:root])
+homebrew_path       = Pathname.new(node[:homebrew][:root])
 homebrew_bin_path   = homebrew_path.join 'bin'
 homebrew_sbin_path  = homebrew_path.join 'sbin'
 homebrew_executable = homebrew_bin_path.join('brew')
 
-caskroom_path = Pathname.new node[:biosphere][:cask][:caskroom]
-applinks_path = Pathname.new node[:biosphere][:cask][:applinks]
+caskroom_path = Pathname.new node[:cask][:caskroom]
+applinks_path = Pathname.new node[:cask][:applinks]
 
-node[:biosphere][:cask][:apps].each do |app|
+node[:cask][:apps].each do |app|
 
   app_path = caskroom_path.join app
 

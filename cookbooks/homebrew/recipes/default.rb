@@ -1,7 +1,7 @@
 require 'pathname'
 
-homebrew_path       = Pathname.new node[:biosphere][:homebrew][:root]
-homebrew_revision   = node[:biosphere][:homebrew][:revision]
+homebrew_path       = Pathname.new node[:homebrew][:root]
+homebrew_revision   = node[:homebrew][:revision]
 homebrew_bin_path   = homebrew_path.join 'bin'
 homebrew_executable = homebrew_bin_path.join('brew')
 
@@ -41,14 +41,14 @@ end
 # Homebrew Formulae
 # –––––––––––––––––
 
-node[:biosphere][:homebrew][:formulae].each do |formula|
+node[:homebrew][:formulae].each do |formula|
 
   formula_path = homebrew_path.join "Cellar/#{formula.split.first}"
 
   if formula_path.exist?
     logg(%{Skipping configuration of <b>#{formula}</b> via homebrew because it already exists.}) { color :yellow }
 
-    if node[:biosphere][:homebrew][:edge_formulae].include?(formula)
+    if node[:homebrew][:edge_formulae].include?(formula)
       logg %{Ensuring cutting-edge #{formula} via homebrew...}
       bash "upgrade-#{formula}" do
         code "#{homebrew_executable} upgrade #{formula} || echo 'Probably already up-to-date...' "
@@ -73,7 +73,7 @@ end
 
 # MySQL
 
-if node[:biosphere][:homebrew][:formulae].include? 'mysql'
+if node[:homebrew][:formulae].include? 'mysql'
 
   etc_path          = homebrew_path.join 'etc'
   mysql_config_path = etc_path.join 'my.cnf'
@@ -109,7 +109,7 @@ end
 
 # Elastic Search
 
-if node[:biosphere][:homebrew][:formulae].include? 'elasticsearch'
+if node[:homebrew][:formulae].include? 'elasticsearch'
 
   elasticsearch_config_file_path = homebrew_path.join 'opt/elasticsearch/config/elasticsearch.yml'
   homebrew_var_path = homebrew_path.join 'var'
@@ -131,7 +131,7 @@ end
 
 # Nginx
 
-if node[:biosphere][:homebrew][:formulae].include? 'nginx --with-passenger'
+if node[:homebrew][:formulae].include? 'nginx --with-passenger'
 
   nginx_config_path  = homebrew_path.join 'etc/nginx'
   nginx_configs_path = nginx_config_path.join('conf')
@@ -181,10 +181,17 @@ end
 
 # DNSMasq
 
-if node[:biosphere][:homebrew][:formulae].include? 'dnsmasq'
+if node[:homebrew][:formulae].include? 'dnsmasq'
 
-  dnsmasq_config_file_path  = homebrew_path.join 'etc/dnsmasq.conf'
+  dnsmasq_config_path = homebrew_path.join 'etc'
+  dnsmasq_config_file_path = dnsmasq_config_path.join 'dnsmasq.conf'
 
+  logg %{Ensuring homebrew directory...}
+  directory dnsmasq_config_path.to_s do
+    mode '0755'
+    recursive true
+  end
+  
   logg %{Configuring DNSMasq...}
   cookbook_file dnsmasq_config_file_path.to_s do
     mode '0644'
@@ -195,12 +202,15 @@ end
 
 # PostgreSQL
 
-if node[:biosphere][:homebrew][:formulae].include? 'postgresql'
+if node[:homebrew][:formulae].include? 'postgresql'
 
   postgresql_var_path         = homebrew_path.join 'var/postgres'
   postgresql_config_file_path = homebrew_path.join 'etc/postgresql.conf'
+  postgres_formula_path       = homebrew_path.join "Cellar/postgres"
 
-  if postgresql_var_path.exist?
+  if !postgres_formula_path.exist?
+    logg(%{Skipping 1st time initialization of <b>PostgreSQL</b> because it does not appear to be installed yet.}) { color :yellow }
+  elsif postgresql_var_path.exist?
     logg(%{Skipping 1st time initialization of <b>PostgreSQL</b> because it was already performed.}) { color :yellow }
   else
     logg %{1st time Postgresql initialization...}
@@ -219,7 +229,7 @@ end
 
 # Homebrew Cask
 
-if node[:biosphere][:homebrew][:formulae].include? 'brew-cask'
+if node[:homebrew][:formulae].include? 'brew-cask'
 
   if homebrew_executable.executable?
     brew_cask_repo = `#{homebrew_executable} info brew-cask | grep Cellar`.split.first

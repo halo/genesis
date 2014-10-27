@@ -1,7 +1,7 @@
 require 'pathname'
 
 rbenv_path        = Pathname.new node[:biosphere][:rbenv][:root]
-homebrew_bin_path = Pathname.new(node[:biosphere][:homebrew][:root]).join 'bin'
+homebrew_bin_path = Pathname.new(node[:homebrew][:root]).join 'bin'
 rbenv_executable  = homebrew_bin_path.join('rbenv')
 homebrew_executable = homebrew_bin_path.join('brew')
 

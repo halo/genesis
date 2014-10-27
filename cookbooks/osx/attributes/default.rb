@@ -1,6 +1,6 @@
 # See http://mths.be/osx
 
-default[:biosphere][:osx][:settings] = %{
+default[:osx][:settings] = %{
 
   Hidden Settings -> Window open/close Animations -> Off
   defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
@@ -320,7 +320,7 @@ default[:biosphere][:osx][:settings] = %{
 }
 
 if ENV['SUDO']
-  default[:biosphere][:osx][:settings] += %{
+  default[:osx][:settings] += %{
 
     Disable the sound effects on boot
     sudo nvram SystemAudioVolume=" "
@@ -335,7 +335,7 @@ if ENV['SUDO']
 end
 
 if %w{ red blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
-  default[:biosphere][:osx][:settings] += %{
+  default[:osx][:settings] += %{
 
     System Preferences -> General -> Show Scrollbars -> When scrolling
     defaults write NSGlobalDomain AppleSchowScrollBars -string WhenScrolling
@@ -347,7 +347,7 @@ if %w{ red blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
 end
 
 if %w{ green }.include? ENV['BIOSPHERE_ENV_PROFILE']
-  default[:biosphere][:osx][:settings] += %{
+  default[:osx][:settings] += %{
 
     System Preferences -> General -> Show Scrollbars -> Always
     defaults write NSGlobalDomain AppleSchowScrollBars -string Always

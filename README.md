@@ -1,7 +1,13 @@
-A chef-solo repository to handle my own mac.
-Is used by biosphere edge (see halo/biosphere).
+A chef-solo repository to handle my Mac.
+Is invoked by Biosphere (see halo/biosphere).
 
+Biosphere Environment variables:
 
-TODO: 
+```bash
+# Format:
+# Highest precedence <- lower precedence <- default value
 
-https://github.com/phinze/homebrew-cask
+GITHUB_SSH_KEY_NAME <- SSH_KEY_NAME <- id_rsa
+CHEF_SSH_KEY_NAME <- SSH_KEY_NAME <- id_rsa
+GITHUB_SUBDOMAIN <- github.com
+```
