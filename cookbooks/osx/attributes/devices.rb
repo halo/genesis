@@ -5,7 +5,7 @@ default[:osx][:settings] += %{
 
 }
 
-if ENV['SUDO'] && %w{ orange blue green }.include? ENV['BIOSPHERE_ENV_PROFILE']
+if ENV['SUDO'] && %w{ orange blue green }.include?(ENV['BIOSPHERE_ENV_PROFILE'])
   default[:osx][:settings] += %{
 
     HDD Sudden motion sensor -> Disable

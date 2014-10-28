@@ -16,3 +16,12 @@ default[:osx][:settings] += %{
   defaults write com.apple.networkConnect VPNShowStatus -int 1
 
 }
+
+if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
+  default[:osx][:settings] += %{
+
+    Hide Spotlight Menu Item
+    sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
+  }
+end
