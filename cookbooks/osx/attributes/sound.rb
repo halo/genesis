@@ -7,3 +7,12 @@ default[:osx][:settings] += %{
   defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
 
 }
+
+if ENV['SUDO']
+  default[:osx][:settings] += %{
+
+    Disable the sound effects on boot
+    sudo nvram SystemAudioVolume=" "
+
+  }
+end

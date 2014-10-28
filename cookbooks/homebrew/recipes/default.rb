@@ -12,6 +12,11 @@ homebrew_executable = homebrew_bin_path.join('brew')
 if offline?
   logg(%{Skipping installation of <b>homebrew</b> because I'm not online.}) { color :yellow }
 else
+  logg %{Ensuring X-Code Command line tools...}
+  bash 'ensure-xcode-clt' do
+    code 'xcode-select --install; echo "This command never fails :)"'
+  end
+  
   logg %{Ensuring correct homebrew revision...}
   git homebrew_path.to_s do
     repository 'https://github.com/mxcl/homebrew.git'
@@ -159,12 +164,6 @@ if node[:homebrew][:formulae].include? 'nginx --with-passenger'
 
     project_paths = %w{
       ~/Code/Projects/shelf/shelf
-      ~/Code/Projects/story/story
-      ~/Code/Projects/vocay/vocay
-      ~/Code/Projects/vws/vws
-      ~/Code/Projects/vws/vws22
-      ~/Code/Projects/piano/piano
-      ~/Code/Projects/matchmaking/matchmaking
     }.map { |path| Pathname.new(path).expand_path }
 
     template nginx_configs_path.join('cortana.conf').to_s do
@@ -223,31 +222,6 @@ if node[:homebrew][:formulae].include? 'postgresql'
   cookbook_file postgresql_config_file_path.to_s do
     mode '0644'
     source 'postgresql/postgresql.conf'
-  end
-
-end
-
-# Homebrew Cask
-
-if node[:homebrew][:formulae].include? 'brew-cask'
-
-  if homebrew_executable.executable?
-    brew_cask_repo = `#{homebrew_executable} info brew-cask | grep Cellar`.split.first
-    patch_path = '/tmp/caskroom.patch'
-
-    if brew_cask_repo != ''
-
-      cookbook_file patch_path do
-        mode '0644'
-        source 'brew-cask/caskroom.patch'
-      end
-
-      logg %{Patching brew cask so that we can configure the directories...}
-      bash "patch-brew-cask" do
-        code "cd #{brew_cask_repo} && patch --batch --forward --strip 1 < #{patch_path} || echo 'this command never fails ;)'"
-      end
-
-    end
   end
 
 end

@@ -8,10 +8,13 @@ default[:cask][:apps] = %w{
   google-chrome
   keka
   mumble
-  teamviewer
   textmate
-  vienna-rss
+  vienna
+  vlc
 }
+
+#teamviewer (sudo)
+#arrsync (broken)
 
 if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
@@ -20,9 +23,10 @@ if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   }
 end
 
+# karabiner (sudo)
+
 if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
-    karabiner
   }
 end
 

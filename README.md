@@ -1,6 +1,10 @@
 A chef-solo repository to handle my Mac.
 Is invoked by Biosphere (see halo/biosphere).
 
+General ENV variables:
+
+SUDO=1
+
 Biosphere Environment variables:
 
 ```bash

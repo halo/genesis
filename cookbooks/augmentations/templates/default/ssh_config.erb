@@ -6,6 +6,7 @@ Host *
   RemoteForward 52698 localhost:52698
   IdentityFile <%= @chef_key_path %>
   IdentitiesOnly yes
+  RSAAuthentication no
   User chef
 
 Host <%= Github.host %>
