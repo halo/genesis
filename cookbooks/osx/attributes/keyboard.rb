@@ -3,6 +3,9 @@ default[:osx][:settings] += %{
   Keyboard access in Modals -> Yes
   defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+  Keyboard key repeat initialization (default is 15 = 225ms)
+  defaults write -g InitialKeyRepeat -int 10
+
   Keyboard repeat rate -> Blazingly Fast
   defaults write NSGlobalDomain KeyRepeat -int 0
 
