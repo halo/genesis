@@ -17,7 +17,7 @@ default[:osx][:settings] += %{
 
 }
 
-if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
+if ENV['SUDO'] && %w{ orange blue }.include?(ENV['BIOSPHERE_ENV_PROFILE'])
   default[:osx][:settings] += %{
 
     Hide Spotlight Menu Item

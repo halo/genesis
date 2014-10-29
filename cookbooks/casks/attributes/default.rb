@@ -20,15 +20,11 @@ if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
     seashore
     sequel-pro
+    quicksilver
   }
 end
 
 # karabiner (sudo)
-
-if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
-  default[:cask][:apps] += %w{
-  }
-end
 
 if %w{ blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
