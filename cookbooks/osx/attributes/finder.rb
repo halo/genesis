@@ -78,6 +78,9 @@ default[:osx][:settings] += %{
   Avoid creating .DS_Store files on network volumes
   defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+  New Windows open at home folder
+  defaults write com.apple.finder NewWindowTarget PfHm
+
 }
 
 if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
