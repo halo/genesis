@@ -14,4 +14,5 @@ Biosphere Environment variables:
 GITHUB_SSH_KEY_NAME <- SSH_KEY_NAME <- id_rsa
 CHEF_SSH_KEY_NAME <- SSH_KEY_NAME <- id_rsa
 GITHUB_SUBDOMAIN <- github.com
+NGINX_PORT <- 8080
 ```

@@ -162,15 +162,13 @@ if node[:homebrew][:formulae].include? 'nginx --with-passenger'
       })
     end
 
-    project_paths = %w{
-      ~/Code/Projects/shelf/shelf
-    }.map { |path| Pathname.new(path).expand_path }
+    projects_path = Pathname.new('~/Code').expand_path
 
     template nginx_configs_path.join('cortana.conf').to_s do
       source 'nginx/cortana.conf.erb'
       variables({
         port:          (ENV['BIOSPHERE_ENV_NGINX_PORT'] || 8080),
-        project_paths: project_paths,
+        projects_path: projects_path.to_s,
       })
     end
 
