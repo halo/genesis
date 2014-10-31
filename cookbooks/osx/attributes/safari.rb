@@ -33,4 +33,43 @@ default[:osx][:settings] += %{
   Show the full URL in the address bar (note: this still hides the scheme)
   defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
+  New Tabs are empty
+  defaults write com.apple.Safari NewTabBehavior -int 1
+
+  New Tabs are empty
+  defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+  
+  Don't load the top-most search result automatically
+  defaults write com.apple.Safari PreloadTopHit -bool false
+  
+  Don't show favorites under search bar
+  defaults write com.apple.Safari ShowFavoritesUnderSmartSearchField -bool false
+  
+  Disable website specific search
+  defaults write com.apple.Safari WebsiteSpecificSearchEnabled -bool false
+  
+  Always new Tabs, not new Windows
+  defaults write com.apple.Safari TabCreationPolicy -int 2
+
+  Don't autofill credit cards
+  defaults write com.apple.Safari AutoFillCreditCardData -bool false
+
+  Don't autofill contacts
+  defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+
+  Don't autofill random forms
+  defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+
+  Allow Cookies only from local site in Safari
+  defaults write com.apple.Safari BlockStoragePolicy -int 3
+
+  Allow Cookies only from local site in Webkit
+  defaults write com.apple.Safari WebKitStorageBlockingPolicy -int 1
+
+  Allow Cookies only from local site in Webkit 2
+  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2StorageBlockingPolicy -int 1
+
+  Send to not track header
+  defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
 }
