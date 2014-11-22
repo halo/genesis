@@ -203,7 +203,7 @@ if node[:homebrew][:formulae].include? 'postgresql'
 
   postgresql_var_path         = homebrew_path.join 'var/postgres'
   postgresql_config_file_path = homebrew_path.join 'etc/postgresql.conf'
-  postgres_formula_path       = homebrew_path.join "Cellar/postgres"
+  postgres_formula_path       = homebrew_path.join "Cellar/postgresql"
 
   if !postgres_formula_path.exist?
     logg(%{Skipping 1st time initialization of <b>PostgreSQL</b> because it does not appear to be installed yet.}) { color :yellow }
