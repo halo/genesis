@@ -22,6 +22,7 @@ if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
     postgresql
     pwgen
     redis
+    go
   }
 end
 
