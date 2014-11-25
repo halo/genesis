@@ -1,5 +1,5 @@
 default[:homebrew][:root]     = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebrew')
-default[:homebrew][:revision] = 'c5cf0844324b76e990cd4eeb77d091e72445f2d4'
+default[:homebrew][:revision] = '9769998e'
 
 default[:homebrew][:formulae] = ['nginx --with-passenger']
 default[:homebrew][:formulae] += %w{
