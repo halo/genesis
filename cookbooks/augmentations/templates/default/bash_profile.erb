@@ -3,7 +3,10 @@ export PATH="<%= @homebrew_bin_path %>:$PATH"
 export PATH="<%= @homebrew_sbin_path %>:$PATH"
 export HOMEBREW_CASK_OPTS="--caskroom='<%= @cask_caskroom_path %>' --appdir='<%= @cask_applinks_path %>'"
 
-# Add local bin directory
+# Load go binaries
+export PATH="<%= Biosphere.sphere_path.join 'go/bin' %>:$PATH"
+
+# Load local bin directory
 export PATH="bin:$PATH"
 
 # Initialize rbenv
@@ -12,6 +15,9 @@ test -x <%= @rbenv_excutable %> && eval "$(<%= @rbenv_excutable %> init -)"
 
 # Configuring PostgreSQL
 export PGDATA="$(brew --prefix)/var/postgres"
+
+# Configuring GO
+export GOPATH="<%= Biosphere.sphere_path.join 'go' %>"
 
 # Git fancy
 if [[ -s <%= @homebrew_etc_path %>/bash_completion.d/git-prompt.sh ]]; then

@@ -1,3 +1,8 @@
+Host <%= Github.host %>
+  HostName github.com
+  IdentityFile <%= @github_key_path %>
+  User git
+
 Host *
   ServerAliveInterval 5
   StrictHostKeyChecking no
@@ -8,8 +13,3 @@ Host *
   IdentitiesOnly yes
   RSAAuthentication no
   User chef
-
-Host <%= Github.host %>
-  HostName github.com
-  IdentityFile <%= @github_key_path %>
-  User git

@@ -1,8 +1,4 @@
-homebrew_path       = Pathname.new(node[:homebrew][:root])
-homebrew_bin_path   = homebrew_path.join 'bin'
-homebrew_sbin_path  = homebrew_path.join 'sbin'
-homebrew_executable = homebrew_bin_path.join('brew')
-
+Homebrew.node = node
 caskroom_path = Pathname.new node[:cask][:caskroom]
 applinks_path = Pathname.new node[:cask][:applinks]
 
@@ -22,7 +18,7 @@ node[:cask][:apps].each do |app|
         environment({
           'HOMEBREW_CASK_OPTS' => "--caskroom='#{caskroom_path}' --appdir='#{applinks_path}'",
         })
-        code %{export PATH="#{homebrew_bin_path}:#{homebrew_sbin_path}:$PATH" && #{homebrew_executable} cask install #{app}}
+        code %{export PATH="#{Homebrew.bin_path}:#{Homebrew.sbin_path}:$PATH" && #{Homebrew.executable_path} cask install #{app}}
       end
     end
   end

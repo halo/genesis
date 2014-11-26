@@ -11,6 +11,6 @@ index.mapper.dynamic: false
 http.max_content_length: 200mb
 
 # Paths
-path.data: <%= @elasticsearch_var_path.join 'elasticsearch' %>
-path.logs: <%= @elasticsearch_var_path.join 'log/elasticsearch' %>
-path.plugins: <%= @elasticsearch_var_path.join 'lib/elasticsearch/plugins' %>
+path.data: <%= @homebrew_var_path.join 'elasticsearch' %>
+path.logs: <%= @homebrew_var_path.join 'log/elasticsearch' %>
+path.plugins: <%= @homebrew_var_path.join 'lib/elasticsearch/plugins' %>
