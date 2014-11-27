@@ -18,6 +18,7 @@ if node[:homebrew][:formulae].include? 'go'
       logg %{Installing #{packages} via go get...}
       bash "install-go-#{name}" do
         code "#{go_executable_path} get #{name}"
+        env 'GOPATH' => go_path.to_s
       end
     end
 
