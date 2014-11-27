@@ -10,6 +10,7 @@ default[:homebrew][:formulae] += %w{
   openssl
   rbenv
   ruby-build
+  duti
 }
 
 if %w{ blue orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
