@@ -4,6 +4,7 @@ Homebrew.node = node
 include_recipe 'homebrew::homebrew'
 
 include_recipe 'homebrew::dnsmasq'
+include_recipe 'homebrew::duti'
 include_recipe 'homebrew::elastic'
 include_recipe 'homebrew::go'
 include_recipe 'homebrew::mysql'
