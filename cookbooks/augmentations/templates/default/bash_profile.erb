@@ -6,12 +6,12 @@ export HOMEBREW_CASK_OPTS="--caskroom='<%= @cask_caskroom_path %>' --appdir='<%=
 # Load go binaries
 export PATH="<%= Biosphere.sphere_path.join 'go/bin' %>:$PATH"
 
-# Load local bin directory
-export PATH="bin:$PATH"
-
 # Initialize rbenv
 export RBENV_ROOT="<%= @rbenv_root_path %>"
 test -x <%= @rbenv_excutable %> && eval "$(<%= @rbenv_excutable %> init -)"
+
+# Load local bin directory with highest precedence
+export PATH="bin:$PATH"
 
 # Configuring PostgreSQL
 export PGDATA="$(brew --prefix)/var/postgres"
