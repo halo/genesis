@@ -16,6 +16,12 @@ default[:cask][:apps] = %w{
 #teamviewer (sudo)
 #arrsync (broken)
 
+if %w{ orange green blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
+  default[:cask][:apps] += %w{
+    flux
+  }
+end
+
 if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
     seashore
