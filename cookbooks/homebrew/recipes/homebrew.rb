@@ -44,7 +44,7 @@ node[:homebrew][:formulae].each do |formula|
       else
         logg %{Ensuring cutting-edge #{formula} via homebrew...}
         bash "upgrade-#{formula}" do
-          code "#{Homebrew.executable_path} upgrade #{formula} 2>&1 | grep 'already installed'"
+          code "#{Homebrew.executable_path} upgrade #{formula} 2>&1 | egrep 'already installed|==> Summary' > /dev/null"
         end
       end
     end

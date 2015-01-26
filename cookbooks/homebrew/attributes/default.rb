@@ -33,6 +33,8 @@ if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
 end
 
 default[:homebrew][:edge_formulae] = %w{
+  openssl
   brew-cask
-  ruby-build
 }
+
+# ruby-build
