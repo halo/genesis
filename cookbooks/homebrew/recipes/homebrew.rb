@@ -39,9 +39,13 @@ node[:homebrew][:formulae].each do |formula|
     logg(%{Skipping configuration of <b>#{formula}</b> via homebrew because it already exists.}) { color :yellow }
 
     if node[:homebrew][:edge_formulae].include?(formula)
-      logg %{Ensuring cutting-edge #{formula} via homebrew...}
-      bash "upgrade-#{formula}" do
-        code "#{Homebrew.executable_path} upgrade #{formula} || echo 'Probably already up-to-date...' "
+      if offline?
+        logg(%{Skipping cutting-edge upgrade of formula <b>#{formula}</b> because I'm not online.}) { color :yellow }
+      else
+        logg %{Ensuring cutting-edge #{formula} via homebrew...}
+        bash "upgrade-#{formula}" do
+          code "#{Homebrew.executable_path} upgrade #{formula} 2>&1 | grep 'already installed'"
+        end
       end
     end
   else
