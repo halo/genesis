@@ -9,7 +9,6 @@ default[:cask][:apps] = %w{
   keka
   mumble
   textmate
-  vienna
   vlc
 }
 
