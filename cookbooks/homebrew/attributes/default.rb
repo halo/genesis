@@ -31,8 +31,6 @@ end
 
 default[:homebrew][:edge_formulae] = %w{
   brew-cask
-  openssl
-  ruby-build
 }
 
 # openssl
