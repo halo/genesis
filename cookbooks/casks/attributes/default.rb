@@ -8,12 +8,12 @@ default[:cask][:apps] = %w{
   google-chrome
   keka
   mumble
-  textmate
   vlc
 }
 
-#teamviewer (sudo)
-#arrsync (broken)
+# textmate (sudo)
+# teamviewer (sudo)
+# arrsync (broken)
 
 if %w{ orange green blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
