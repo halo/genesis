@@ -1,7 +1,7 @@
 default[:homebrew][:root]     = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebrew')
-default[:homebrew][:revision] = '8a1d4f8ddc35cc961d2c03934ad494da71361ff7'
+default[:homebrew][:revision] = 'b72b648f1c38119baff15b2d3460848990657322'
 
-default[:homebrew][:formulae] = ['nginx --with-passenger']
+default[:homebrew][:formulae] = []
 default[:homebrew][:formulae] += %w{
   autoconf
   brew-cask
@@ -14,8 +14,7 @@ default[:homebrew][:formulae] += %w{
 }
 
 if %w{ blue orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
-  default[:homebrew][:formulae] += %w{
-  }
+  default[:homebrew][:formulae] += ['nginx --with-passenger']
 end
 
 if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
