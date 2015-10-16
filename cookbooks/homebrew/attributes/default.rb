@@ -1,5 +1,5 @@
 default[:homebrew][:root]     = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebrew')
-default[:homebrew][:revision] = 'b72b648f1c38119baff15b2d3460848990657322'
+default[:homebrew][:revision] = '93cb258bccc9ff4def79210471a681ab36bced33'
 
 default[:homebrew][:formulae] = []
 default[:homebrew][:formulae] += %w{
@@ -22,9 +22,9 @@ if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
     ffmpeg
     imagemagick
     memcached
-    phantomjs
     postgresql
     redis
+    qt5
   }
 end
 
