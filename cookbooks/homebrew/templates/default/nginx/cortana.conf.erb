@@ -9,7 +9,12 @@ server {
   passenger_enabled on;
 
   # Infer repository location from domain name.
+  set $tdl $1;
   set $_root <%= @projects_path %>/$1/$1/public;
+  if ($tdl ~ '^(.*)\.(.*)$') {
+    # Subdomains still lead to the same app directory
+    set $_root <%= @projects_path %>/$2/$2/public;
+  }
   root $_root;
 
   set $real_host $host;
