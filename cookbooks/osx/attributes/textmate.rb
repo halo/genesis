@@ -9,11 +9,11 @@ default[:osx][:settings] += %{
   Always wrap around search
   defaults write com.macromates.TextMate.preview findWrapAround -bool YES
 
-  Tabs begin at the document window
-  defaults write com.macromates.TextMate.preview tabsAboveDocument -bool YES
+  Tabs all the way through
+  defaults write com.macromates.TextMate.preview tabsAboveDocument -bool NO
 
-  Show file browser to the left
-  defaults write com.macromates.TextMate.preview fileBrowserPlacement -string "left"
+  Show file browser to the right
+  defaults write com.macromates.TextMate.preview fileBrowserPlacement -string "right"
 
   Always show the tab bar
   defaults write com.macromates.TextMate.preview disableTabBarCollapsing -bool YES
