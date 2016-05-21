@@ -1,13 +1,13 @@
 Homebrew.node = node
 
-bash_profile_path  = File.join(ENV['BIOSPHERE_SPHERE_AUGMENTATIONS_PATH'], 'bash_profile')
+shell_path         = File.join(ENV['BIOSPHERE_SPHERE_AUGMENTATIONS_PATH'], 'shell')
 rbenv_path         = Pathname.new node[:biosphere][:rbenv][:root]
 rbenv_executable   = Homebrew.bin_path.join('rbenv')
 cask_caskroom_path = Pathname.new node[:cask][:caskroom]
 cask_applinks_path = Pathname.new node[:cask][:applinks]
 
-template bash_profile_path do
-  source 'bash_profile.erb'
+template shell_path        do
+  source 'shell.erb'
   variables({
     homebrew_bin_path:  Homebrew.bin_path,
     homebrew_sbin_path: Homebrew.sbin_path,
