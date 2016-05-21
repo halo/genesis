@@ -13,22 +13,6 @@ else
     action :sync
   end
 
-  if Homebrew.executable_path.executable?
-    current_taps = `#{Homebrew.executable_path} tap`.split
-    wanted_taps = %w{ phinze/cask }
-
-    wanted_taps.each do |tap|
-      if current_taps.include? tap
-        logg(%{Skipping tapping homebrew into <b>#{tap}</b> because it's already tapped...}) { color :yellow }
-      else
-        logg %{Tapping homebrew into <b>#{tap}</b>...}
-        bash "tap-#{tap}" do
-          code "#{Homebrew.executable_path} tap #{tap}"
-        end
-      end
-    end
-  end
-
 end
 
 node[:homebrew][:formulae].each do |formula|
