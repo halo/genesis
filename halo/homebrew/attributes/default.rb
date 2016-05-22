@@ -4,7 +4,6 @@ default[:homebrew][:revision] = '0123e04faed98c06dc395a2ec0d7fa0de2f56d5d'
 default[:homebrew][:formulae] = []
 default[:homebrew][:formulae] += %w{
   autoconf
-  caskroom/cask/brew-cask
   dnsmasq
   git
   openssl
@@ -29,8 +28,8 @@ if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
 end
 
 default[:homebrew][:edge_formulae] = %w{
-  caskroom/cask/brew-cask
+  ruby-build
 }
 
 # openssl
-# ruby-build
+#

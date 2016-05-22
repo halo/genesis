@@ -20,7 +20,7 @@ node[:homebrew][:formulae].each do |formula|
   formula_path = Homebrew.path.join "Cellar/#{formula.split.first}"
 
   if formula_path.exist?
-    logg(%{Skipping configuration of <b>#{formula}</b> via homebrew because it already exists.}) { color :yellow }
+    logg(%{Skipping installation of <b>#{formula}</b> via homebrew because it is already installed.}) { color :yellow }
 
     if node[:homebrew][:edge_formulae].include?(formula)
       if offline?
