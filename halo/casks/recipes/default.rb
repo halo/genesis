@@ -16,7 +16,7 @@ node[:cask][:apps].each do |app|
       logg %{Installing #{app} via cask...}
       bash "install-cask-#{app}" do
         environment({
-          'HOMEBREW_CASK_OPTS' => "--caskroom='#{caskroom_path}' --appdir='#{applinks_path}'",
+          'HOMEBREW_CASK_OPTS' => "--binarydir='#{Homebrew.bin_path}' --caskroom='#{caskroom_path}' --appdir='#{applinks_path}'",
         })
         code %{export PATH="#{Homebrew.bin_path}:#{Homebrew.sbin_path}:$PATH" && #{Homebrew.executable_path} cask install #{app}}
       end
