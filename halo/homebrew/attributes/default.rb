@@ -10,6 +10,7 @@ default[:homebrew][:formulae] += %w{
   rbenv
   ruby-build
   duti
+  macosvpn
 }
 
 if %w{ blue orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
