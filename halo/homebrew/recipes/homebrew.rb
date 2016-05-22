@@ -8,7 +8,7 @@ else
 
   logg %{Ensuring correct homebrew revision...}
   git Homebrew.path.to_s do
-    repository 'https://github.com/mxcl/homebrew.git'
+    repository 'https://github.com/Homebrew/brew.git'
     revision node[:homebrew][:revision]
     action :sync
   end
