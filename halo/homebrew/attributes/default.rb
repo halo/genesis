@@ -1,5 +1,5 @@
 default[:homebrew][:root]     = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebrew')
-default[:homebrew][:revision] = '0123e04faed98c06dc395a2ec0d7fa0de2f56d5d'
+default[:homebrew][:revision] = '14657443ce4346254ede3df52670c5e641796cd4'
 
 default[:homebrew][:formulae] = []
 default[:homebrew][:formulae] += %w{
