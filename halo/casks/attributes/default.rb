@@ -6,30 +6,21 @@ default[:cask][:apps] = %w{
   disk-inventory-x
   firefox
   google-chrome
-  keka
   mumble
-  vlc
 }
 
+# virtualbox (sudo)
 # textmate (sudo)
 # teamviewer (sudo)
-# arrsync (broken)
 
 if %w{ orange green blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
     flux
-  }
-end
-
-if %w{ orange blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
-  default[:cask][:apps] += %w{
+    arrsync
     seashore
-    sequel-pro
     quicksilver
   }
 end
-
-# karabiner (sudo)
 
 if %w{ blue }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w{
