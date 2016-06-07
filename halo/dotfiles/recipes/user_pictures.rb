@@ -1,4 +1,4 @@
-container = Home.path.join('Library/User Pictures/Sphere')
+container = Home.path.join('Library/User Pictures/Unicolor')
 
 directory container.to_s do
   recursive true
