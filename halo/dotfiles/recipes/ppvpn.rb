@@ -1,8 +1,4 @@
-container = Home.path.join('/usr/local/bin')
-
-directory container.to_s do
-  recursive true
-end
+container = Homebrew.bin_path
 
 cookbook_file container.join('ppvpn').to_s do
   source 'ppvpn'
