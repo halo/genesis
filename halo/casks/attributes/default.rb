@@ -7,6 +7,7 @@ default[:cask][:apps] = %w{
   firefox
   google-chrome
   mumble
+  macosvpn
 }
 
 # virtualbox (sudo)
