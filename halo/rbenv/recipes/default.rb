@@ -33,15 +33,3 @@ node[:biosphere][:rbenv][:rubies].each do |version|
   end
 
 end
-
-bundle_executable = rbenv_path.join('shims/bundle')
-
-configurations = {
-  'build.nokogiri' => '--use-system-libraries',
-}
-
-configurations.each do |name, options|
-  bash "configure-bundler-#{name}" do
-    code %(#{bundle_executable} config #{name} #{options})
-  end
-end
