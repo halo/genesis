@@ -36,7 +36,13 @@ end
 psk_file = Pathname.new('/tmp/ipsec_psks.csv')
 
 unless psk_file.exist?
-  require 'mechanize'
+
+  begin
+    require 'mechanize'
+  rescue Gem::LoadError
+    puts 'Please install the `mechanize` gem manually first.'
+    abort
+  end
 
   # Create the virtual browser
   agent = Mechanize.new
