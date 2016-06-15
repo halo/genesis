@@ -39,7 +39,7 @@ unless psk_file.exist?
 
   begin
     require 'mechanize'
-  rescue Gem::LoadError
+  rescue LoadError
     puts 'Please install the `mechanize` gem manually first.'
     abort
   end
