@@ -8,6 +8,11 @@ homebrew_executable = homebrew_bin_path.join('brew')
 logg %{Ensuring rbenv root directory...}
 directory rbenv_path.to_s
 
+logg %{Ensuring rbenv version config file}
+file rbenv_path.join('version').to_s do
+  content '2.2.4'
+end
+
 node[:biosphere][:rbenv][:rubies].each do |version|
 
   ruby_bin_path = rbenv_path.join('versions', version, 'bin')
