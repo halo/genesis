@@ -30,7 +30,18 @@ node[:biosphere][:rbenv][:rubies].each do |version|
         code %{export PATH="#{homebrew_bin_path}:$PATH"; eval "$(#{rbenv_executable} init -)" && #{rbenv_executable} install #{version}}
       end
     end
-
   end
 
+end
+
+bundle_executable = rbenv_path.join('shims/bundle')
+
+configurations = {
+  'build.nokogiri' => '--use-system-libraries',
+}
+
+configurations.each do |name, options|
+  bash "configure-bundler-#{name}" do
+    code %(#{bundle_executable} config #{name} #{options})
+  end
 end
