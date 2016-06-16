@@ -22,7 +22,6 @@ end
 
 if %w(orange green).include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w(
-    audacity
   )
 end
 
