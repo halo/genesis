@@ -1,4 +1,4 @@
-support_path = Home.path.join('Library/Application Support/Avian/Bundles')
+support_path = Home.path.join('Library/Application Support/Avian')
 bundles_path = support_path.join('Bundles')
 
 logg %{Ensuring Textmate Application Support directory...}
