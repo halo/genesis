@@ -24,7 +24,7 @@ if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
     memcached
     postgresql
     redis
-    qt5
+    qt55
   }
 end
 
