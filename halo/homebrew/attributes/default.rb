@@ -15,16 +15,18 @@ default[:homebrew][:formulae] += %w{
 
 if %w{ blue orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:homebrew][:formulae] += ['nginx --with-passenger']
-end
-
-if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:homebrew][:formulae] += %w{
-    ffmpeg
     imagemagick
     memcached
     postgresql
     redis
     qt55
+  }
+end
+
+if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
+  default[:homebrew][:formulae] += %w{
+    ffmpeg
   }
 end
 
