@@ -27,6 +27,7 @@ end
 if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:homebrew][:formulae] += %w{
     ffmpeg
+    homebrew/science/opencv
   }
 end
 
