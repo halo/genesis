@@ -9,6 +9,8 @@ default[:cask][:apps] = %w(
   mumble
   torbrowser
   textmate
+  clipgrab
+  brave
 )
 
 if %w(orange green blue).include? ENV['BIOSPHERE_ENV_PROFILE']
