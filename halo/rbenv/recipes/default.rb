@@ -26,8 +26,9 @@ node[:biosphere][:rbenv][:rubies].each do |version|
     else
       logg %{Installing rbenv Ruby #{version}...}
       bash "install-ruby" do
+        cwd Home.path.to_s
         environment({ 'RBENV_ROOT' => rbenv_path.to_s })
-        code %{export PATH="#{homebrew_bin_path}:$PATH"; eval "$(#{rbenv_executable} init -)" && #{rbenv_executable} install #{version}}
+        code %{eval "$(#{rbenv_executable} init -)" && #{rbenv_executable} install #{version}}
       end
     end
   end
