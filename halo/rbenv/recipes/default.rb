@@ -10,7 +10,7 @@ directory rbenv_path.to_s
 
 logg %{Ensuring rbenv version config file}
 file rbenv_path.join('version').to_s do
-  content '2.2.4'
+  content node[:biosphere][:rbenv][:rubies].first
 end
 
 node[:biosphere][:rbenv][:rubies].each do |version|
