@@ -10,20 +10,12 @@ default[:cask][:apps] = %w(
   torbrowser
   textmate
   clipgrab
-  brave
 )
 
 if %w(orange green blue).include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:cask][:apps] += %w(
-    flux
     arrsync
-    seashore
     quicksilver
-  )
-end
-
-if %w(orange green).include? ENV['BIOSPHERE_ENV_PROFILE']
-  default[:cask][:apps] += %w(
   )
 end
 
