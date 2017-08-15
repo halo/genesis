@@ -31,6 +31,10 @@ module Homebrew
     path.join 'Cellar'
   end
 
+  def self.caskroom_path
+    path.join 'Caskroom'
+  end
+
   def self.executable_path
     bin_path.join 'brew'
   end

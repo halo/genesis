@@ -4,23 +4,22 @@ default[:homebrew][:root]     = File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'homebre
 default[:homebrew][:formulae] = []
 default[:homebrew][:formulae] += %w{
   autoconf
-  dnsmasq
+  duti
   git
   openssl
   rbenv
   ruby-build
-  duti
-  macosvpn
 }
 
 if %w{ blue orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
   default[:homebrew][:formulae] += ['nginx --with-passenger']
   default[:homebrew][:formulae] += %w{
+    dnsmasq
+    homebrew/versions/qt55
     imagemagick
     memcached
     postgresql
     redis
-    homebrew/versions/qt55
   }
 end
 

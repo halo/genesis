@@ -4,6 +4,8 @@ directory container.to_s do
   recursive true
 end
 
-cookbook_file container.join('orange.png').to_s do
-  source 'orange.png'
+%w[orange red].each do |name|
+  cookbook_file container.join("#{name}.png").to_s do
+    source "#{name}.png"
+  end
 end
