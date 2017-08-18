@@ -12,7 +12,6 @@ default[:homebrew][:formulae] += %w{
 }
 
 if %w{ blue orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
-  default[:homebrew][:formulae] += ['nginx --with-passenger']
   default[:homebrew][:formulae] += %w{
     dnsmasq
     homebrew/versions/qt55
@@ -21,6 +20,11 @@ if %w{ blue orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
     postgresql
     redis
   }
+end
+
+if %w{ blue orange red }.include? ENV['BIOSPHERE_ENV_PROFILE']
+  default[:homebrew][:formulae] += ['nginx --with-passenger']
+
 end
 
 if %w{ orange }.include? ENV['BIOSPHERE_ENV_PROFILE']
