@@ -1,5 +1,3 @@
-default[:cask][:applinks] = Home.path.join('Applications') # File.join(ENV['BIOSPHERE_SPHERE_PATH'], 'caskapps')
-
 default[:cask][:apps] = %w[
   cyberduck
   disk-inventory-x
