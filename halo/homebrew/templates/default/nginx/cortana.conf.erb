@@ -1,6 +1,6 @@
 server {
-  # Catch all *.dev
-  server_name ~^(.*)\.dev$;
+  # Catch all *.test
+  server_name ~^(.*)\.test$;
 
   # Catch all *.xip.io
   server_name "~^(.*)(\.\d+){4}\.xip\.io$";
@@ -20,7 +20,7 @@ server {
   set $real_host $host;
   # strip '.1.2.3.4.xip.io' from the host
   if ($real_host ~ '(.*)(\.\d+){4}\.xip\.io$') {
-    set $real_host $1.dev;
+    set $real_host $1.test;
   }
   # pass the modified host to the app
   proxy_set_header Host $real_host;

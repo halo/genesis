@@ -6,7 +6,7 @@ else
     code 'xcode-select --install; echo "This command never fails :)"'
   end
 
-  logg %{Ensuring correct homebrew revision...}
+  logg %{Updating homebrew...}
   git Homebrew.path.to_s do
     repository 'https://github.com/Homebrew/brew.git'
     # revision node[:homebrew][:revision]

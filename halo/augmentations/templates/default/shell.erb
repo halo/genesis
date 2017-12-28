@@ -6,10 +6,7 @@ export PATH="<%= @homebrew_sbin_path %>:$PATH"
 export RBENV_ROOT="<%= @rbenv_root_path %>"
 test -x <%= @rbenv_excutable %> && eval "$(<%= @rbenv_excutable %> init -)"
 
-# Load local bin directory with highest precedence
-export PATH="bin:$PATH"
-
-# Configuring PostgreSQL
+# Configuring PostgreSQL, if installed via homebrew
 export PGDATA="$(brew --prefix)/var/postgres"
 
 # Git fancy

@@ -6,23 +6,22 @@ default[:cask][:apps] = %w[
   mumble
   torbrowser
   textmate
-  clipgrab
 ]
 
-if %w[orange green blue].include? ENV['BIOSPHERE_ENV_PROFILE']
+if Biosphere.profile? :orange, :green, :blue
   default[:cask][:apps] += %w[
     arrsync
     quicksilver
   ]
 end
 
-if %w[orange blue].include? ENV['BIOSPHERE_ENV_PROFILE']
+if Biosphere.profile? :orange, :blue
   default[:cask][:apps] += %w[
     postico
   ]
 end
 
-if %w[blue].include? ENV['BIOSPHERE_ENV_PROFILE']
+if Biosphere.profile? :blue
   default[:cask][:apps] += %w[
     adium
   ]

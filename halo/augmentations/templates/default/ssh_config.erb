@@ -1,18 +1,20 @@
-Host <%= Github.host %>
+<% if @github_key_path %>Host <%= Github.host %>
   HostName github.com
   IdentityFile <%= @github_key_path %>
   User git
+<% end -%>
 
 Host *
-  ServerAliveInterval 5
-  StrictHostKeyChecking no
-  UserKnownHostsFile /dev/null
-  SendEnv RMATE_*
-  RemoteForward 52698 localhost:52698
-  IdentityFile <%= @chef_key_path %>
-  IdentitiesOnly yes
-  RSAAuthentication no
-  User chef
+  AddKeysToAgent yes
   ChallengeResponseAuthentication no
   HashKnownHosts yes
+  IdentitiesOnly yes
+  <% if @serverpark_key_path %>IdentityFile <%= @serverpark_key_path %><% end %>
+  RemoteForward 52698 localhost:52698
+  RSAAuthentication no
+  SendEnv RMATE_*
+  ServerAliveInterval 5
+  StrictHostKeyChecking no
   UseKeychain yes
+  User chef
+  UserKnownHostsFile /dev/null
