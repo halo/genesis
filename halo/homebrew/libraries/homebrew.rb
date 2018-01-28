@@ -1,14 +1,12 @@
 require 'pathname'
 
 module Homebrew
-  @@node = nil
-
   def self.node=(new_node)
-    @@node = new_node
+    @node = new_node
   end
 
   def self.path
-    Pathname.new @@node[:homebrew][:root]
+    Pathname.new @node[:homebrew][:root]
   end
 
   def self.bin_path
