@@ -4,16 +4,17 @@ default[:cask][:apps] = %w[
   firefox
   google-chrome
   mumble
-  torbrowser
   textmate
+  torbrowser
+  vienna
 ]
 
 if Biosphere.profile? :orange, :green, :blue
   default[:cask][:apps] += %w[
-    arrsync
     quicksilver
   ]
 end
+# Checksum error? arrsync
 
 if Biosphere.profile? :orange, :blue
   default[:cask][:apps] += %w[
