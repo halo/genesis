@@ -9,3 +9,15 @@ node[:cask][:apps].each do |app|
     not_if { Homebrew.caskroom_path.join(app).directory? }
   end
 end
+
+# Remove ~/Applications directory if empty.
+
+file Home.path.join('Applications', '.localized').to_s do
+  action :delete
+  ignore_failure true
+end
+
+directory Home.path.join('Applications').to_s do
+  action :delete
+  ignore_failure true
+end
