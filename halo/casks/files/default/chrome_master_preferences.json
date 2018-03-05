@@ -39,25 +39,20 @@
     // Pre-install extensions
     "settings": {
 
-      "ghgghhceppfhemlgffnlbpaobcclhfdf": {
+      "fhcgjolkccmbidfldomjliifgaodjagh": {
          "location": 1,
          "manifest": {
-           "content_scripts": [ {
-              "js": [ "data/content/inject.js" ],
-              "matches": [ "https://*/*", "http://*/*" ],
-              "run_at": "document_start"
-           } ],
-            "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg9QXGpEjVImD7kaXVuBrK1J0aMFAxWc5agoK33m2n+2g29vQNQFNtAKGVAHkHkTRr9Da++QrWceAZCLgDYd7Cb7GLZjJJykNXOnLCY3OUofinz49pvfv12x6KEmiWnpFOgX3PQNkCIb0plh0Y+TkscSLfa5Jh/JpP4R1aYkwPfvbIEWyzA/QfgxkZLWK17ijJRd6YhnXBfxirTALsWPjKz4SZ9t4+hP6+jZKu1kkMMjAM6Oi+LDYERJ44qMMcofWhZ+M7u/uHcUwllbPzs5eUQ5f7cjHTEfhGFosgQgVt6b2rqqNNQtH3vGkEzptHhUG/mdvUmb+YoZknCyEO7v/lwIDAQAB",
-            "name": "Self Destroying Cookies",
-            "permissions": [ "storage", "cookies", "tabs", "*://*/*", "webRequest", "history", "notifications", "downloads" ],
-            "update_url": "http://clients2.google.com/service/update2/crx",
-            "version": "0.0"
+           "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+kSDE83Gn3nh3ZlhHunZrIGdVRR/wGsrXmcZOMm6o38lzXWNVKlP1EZs/oKaLK27fExIwF+5RqBTSUsluqGoCrG6rQa6Ihh5waotN9L83Ht0lQyDkF/mjOWxP6U3+R19iuU2aoJENuYuf50uiLSHSzlYQzwfse8JSRM4dFHZ8HyxLpT5cTlSwSF8MqAkzxq8OwmKp/PuIueLbe8UDsErgxZibFm3OPTC07c6aZhcx5BKzmxqaJ1SVoieuF9OTMB6OKqpyOVC5mIB/JXt59WSPbr6cizNM0TjtI1Yebg9/K9fwjS4scCCU+bxoV+mBV55k424Ez/QfdqEqXxz6USO0QIDAQAB",
+           "name": "Cookie AutoDelete",
+           "permissions": [ "activeTab", "cookies", "contextualIdentities", "<all_urls>", "tabs", "storage", "notifications", "browsingData", "privacy", "alarms" ],
+           "update_url": "https://clients2.google.com/service/update2/crx",
+           "version": "0.0"
          },
          "granted_permissions": {
-           "api": [ "storage", "cookies", "tabs", "webRequest", "history", "notifications", "downloads" ],
+           "permissions": [ "activeTab", "cookies", "contextualIdentities", "<all_urls>", "tabs", "storage", "notifications", "browsingData", "privacy", "alarms" ],
            "explicit_host": [ "https://*/*", "http://*/*" ]
          },
-         "path": "ghgghhceppfhemlgffnlbpaobcclhfdf\\0.0",
+         "path": "fhcgjolkccmbidfldomjliifgaodjagh\\0.0",
          "state": 1
       },
 
