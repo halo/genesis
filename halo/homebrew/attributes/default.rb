@@ -15,6 +15,7 @@ if Biosphere.profile? :orange, :blue
     dnsmasq
     imagemagick
     memcached
+    node
     postgresql
     redis
   ]

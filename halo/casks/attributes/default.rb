@@ -20,7 +20,6 @@ if Biosphere.profile? :orange, :blue
   default[:cask][:apps] += %w[
     docker
     postico
-    node
   ]
 end
 
