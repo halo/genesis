@@ -10,9 +10,11 @@ default[:homebrew][:formulae] += %w[
   ruby-build
 ]
 
+# ghostscript is needed for imagemagick to handle PDFs
 if Biosphere.profile? :orange, :blue
   default[:homebrew][:formulae] += %w[
     dnsmasq
+    ghostscript
     imagemagick
     memcached
     node
