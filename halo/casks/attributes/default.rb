@@ -1,7 +1,6 @@
 default[:cask][:apps] = %w[
   cyberduck
   disk-inventory-x
-  firefox
   google-chrome
   mumble
   textmate
@@ -19,6 +18,7 @@ end
 if Biosphere.profile? :orange, :blue
   default[:cask][:apps] += %w[
     docker
+    firefox
     postico
   ]
 end
