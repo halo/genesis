@@ -13,6 +13,10 @@ else
     action :sync
   end
 
+  logg %{Ensuring caskroom/fonts tap...}
+  bash 'tap-fonts' do
+    code "#{Homebrew.executable_path} tap caskroom/fonts"
+  end
 end
 
 node[:homebrew][:formulae].each do |formula|
