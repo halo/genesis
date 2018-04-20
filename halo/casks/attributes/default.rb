@@ -8,7 +8,7 @@ default[:cask][:apps] = %w[
   vienna
 ]
 
-if Biosphere.profile? :orange, :green, :blue
+if Biosphere.profile? :orange, :green, :blue, :pink
   default[:cask][:apps] += %w[
     quicksilver
   ]
