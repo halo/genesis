@@ -17,9 +17,11 @@ if Biosphere.profile? :orange, :blue
     ghostscript
     imagemagick
     memcached
+    nmap
     node
     postgresql
     redis
+    telnet
   ]
 end
 
