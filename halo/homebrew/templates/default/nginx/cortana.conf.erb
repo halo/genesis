@@ -1,4 +1,7 @@
 server {
+  # Catch all *.localhost
+  server_name ~^(.*)\.localhost$;
+
   # Catch all *.test
   server_name ~^(.*)\.test$;
 
