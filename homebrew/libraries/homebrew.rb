@@ -33,6 +33,10 @@ module Homebrew
     path.join 'Cellar'
   end
 
+  def self.caskroom_path
+    path.join 'Caskroom'
+  end
+
   def self.taps_path
     path.join 'Library', 'Taps'
   end

@@ -8,6 +8,8 @@ default[:homebrew][:formulae] = %w[
   rbenv
   ruby-build
   telnet
+  tldr
+  youtube-dl
 ]
 
 # ghostscript is needed for imagemagick to handle PDFs
