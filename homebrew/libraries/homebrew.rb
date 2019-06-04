@@ -25,6 +25,10 @@ module Homebrew
     path.join 'var'
   end
 
+  def self.opt_path
+    path.join 'opt'
+  end
+
   def self.cellar_path
     path.join 'Cellar'
   end

@@ -11,7 +11,7 @@ server {
   # Catch all *.xip.io
   server_name "~^(.*)(\.\d+){4}\.xip\.io$";
 
-  listen <%= @port %>;
+  listen 8080;
   passenger_enabled on;
 
   # Infer repository location from domain name.

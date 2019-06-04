@@ -1,7 +1,7 @@
 Homebrew.node = node
 
 shell_path       = Biosphere.augmentations_path.join 'shell'
-rbenv_root_path  = Pathname.new node[:biosphere][:rbenv][:root]
+rbenv_root_path  = Pathname.new node[:rbenv][:root]
 rbenv_executable = Homebrew.bin_path.join('rbenv')
 
 template shell_path.to_s do

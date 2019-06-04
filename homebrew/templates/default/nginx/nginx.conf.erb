@@ -1,4 +1,9 @@
-# We would like to start nginx via Foreman so we must have it running in foreground.
+# See https://github.com/nginx/nginx/blob/master/conf/nginx.conf
+
+# See https://github.com/Homebrew/homebrew-core/blob/36320d07a51821b47721977ae4ac93d3765fdc0c/Formula/passenger.rb#L90-L96
+load_module <%= @passenger_root %>/modules/ngx_http_passenger_module.so;
+
+# We would like to start nginx via launchd so we must have it running in foreground.
 daemon off;
 
 # To avoid multi-thread problems, you might want to keep this at 1.
@@ -10,17 +15,21 @@ events {
   worker_connections 24576;
 }
 
+# General nginx config
 http {
 
   # Passenger uses "production" by default. We don't want that.
   rack_env development;
 
+  # Load passenger (does not enable passenger yet)
   passenger_root <%= @passenger_root %>;
   passenger_ruby <%= @passenger_ruby %>;
 
+  # Allow upload of large files
   client_max_body_size    200m;
   client_body_buffer_size 128k;
 
+  # Speed increase
   sendfile    on;
   tcp_nopush  on;
   tcp_nodelay on;
@@ -28,16 +37,15 @@ http {
   include       mime.types;
   default_type  application/octet-stream;
 
-  gzip         on;
-  gzip_disable "msie6";
-
+  gzip            on;
   gzip_proxied    any;
   gzip_min_length 500;
   gzip_types      text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
 
-  # Enforce loading the files in alphabetical order
+  # Enforce loading config files in alphabetical order.
+  # The `include` statement works relative to where the 'nginx.conf' file is located.
   <% ('a' .. 'z').each do |letter| %>
-    include <%= @nginx_configs_path.join("#{letter}*.conf") %>;
+  include conf/<%= "#{letter}*.conf" %>;
   <% end %>
 
 }

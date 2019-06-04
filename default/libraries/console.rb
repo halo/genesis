@@ -3,7 +3,7 @@ module Console
     @user ||= Etc.getpwuid(::File.stat('/dev/console').uid).name
   end
 
-  def profile?(*names)
+  def self.profile?(*names)
     names.map(&:to_s).include? user
   end
 end
