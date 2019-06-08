@@ -46,9 +46,10 @@ profile_hash = {
       DefaultWebUsbGuardSetting: 2,
       # Enforce these extensions to be installed
       ExtensionInstallForcelist: [
-        'fhcgjolkccmbidfldomjliifgaodjagh', # Cookie AutoDelete
         'aomjjhallfgjeglblehebfpbcfeobpgk', # 1Password
         'dpjamkmjmigaoobjbekmfgabipmfilij', # Empty New Tab Page
+        'enfegiojkdinjbgodgigkimlgacpbene', # Nuke'm - Browsing Data Cleaner
+        'fhcgjolkccmbidfldomjliifgaodjagh', # Cookie AutoDelete
         'gcbommkclmclpchllfjekcdonpmejbdp', # HTTPS Everywhere
         'lokpenepehfdekijkebhpnpcjjpngpnd' # Mute and skip Youtube ads (note remove)
       ],
