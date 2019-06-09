@@ -7,6 +7,12 @@ git Homebrew.path.to_s do
   only_if { Internet.online? }
 end
 
+directory Homebrew.etc_path.to_s do
+  mode '755'
+  owner Console.user
+  group 'staff'
+end
+
 execute 'tap-homebrew-fonts' do
   command "#{Homebrew.executable_path} tap caskroom/fonts"
   user Console.user
