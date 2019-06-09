@@ -1,10 +1,26 @@
 rbenv_path = Pathname.new node[:rbenv][:root]
+ruby_plugins_path = rbenv_path.join('plugins')
+ruby_build_path = ruby_plugins_path.join('ruby-build')
 homebrew_bin_path = Pathname.new(node[:homebrew][:root]).join 'bin'
 rbenv_executable = homebrew_bin_path.join('rbenv')
 
 directory rbenv_path.to_s do
   owner Console.user
   group 'staff'
+end
+
+directory ruby_plugins_path.to_s do
+  owner Console.user
+  group 'staff'
+end
+
+git ruby_build_path.to_s do
+  repository 'https://github.com/rbenv/ruby-build.git'
+  action :sync
+  revision 'master'
+  user Console.user
+  group 'staff'
+  only_if { Internet.online? }
 end
 
 # Set global default ruby version

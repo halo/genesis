@@ -6,7 +6,6 @@ default[:homebrew][:formulae] = %w[
   ffmpeg
   openssl
   rbenv
-  ruby-build
   telnet
   tldr
   youtube-dl
@@ -28,5 +27,4 @@ if Console.profile?(:orange, :blue)
 end
 
 default[:homebrew][:edge_formulae] = %w[
-  ruby-build
 ]
