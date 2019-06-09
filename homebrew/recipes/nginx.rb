@@ -5,6 +5,12 @@ ruby_executable_path = Pathname.new(node[:rbenv][:root]).join 'versions', most_r
 passenger_root = Homebrew.opt_path.join 'passenger/libexec'
 nginx_executable_path = Homebrew.bin_path.join('nginx')
 
+directory nginx_config_path.to_s do
+  mode '755'
+  owner Console.user
+  group 'staff'
+end
+
 directory nginx_configs_path.to_s do
   mode '755'
   owner Console.user
