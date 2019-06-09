@@ -1,7 +1,7 @@
 git Homebrew.path.to_s do
   repository 'https://github.com/Homebrew/brew.git'
   action :sync
-  checkout_branch 'master'
+  revision 'master'
   user Console.user
   group 'staff'
   only_if { Internet.online? }
