@@ -2,6 +2,7 @@ default[:homebrew][:root] = Workdir.path.join 'homebrew'
 
 default[:homebrew][:formulae] = %w[
   autoconf
+  autojump
   duti
   ffmpeg
   openssl
