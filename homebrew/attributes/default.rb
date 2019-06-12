@@ -13,7 +13,7 @@ default[:homebrew][:formulae] = %w[
 ]
 
 # ghostscript is needed for imagemagick to handle PDFs
-if Console.profile?(:orange, :blue)
+if Console.profile?(:orange)
   default[:homebrew][:formulae] += %w[
     ghostscript
     imagemagick
