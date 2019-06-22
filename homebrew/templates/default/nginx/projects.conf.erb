@@ -26,7 +26,7 @@ server {
   set $real_host $host;
   # strip '.1.2.3.4.xip.io' from the host
   if ($real_host ~ '(.*)(\.\d+){4}\.xip\.io$') {
-    set $real_host $1.test;
+    set $real_host $1.localhost;
   }
   # pass the modified host to the app
   proxy_set_header Host $real_host;
