@@ -5,6 +5,7 @@ default[:homebrew][:formulae] = %w[
   autojump
   duti
   ffmpeg
+  iterm2
   openssl
   rbenv
   telnet
@@ -24,6 +25,7 @@ if Console.profile?(:orange)
     passenger
     postgresql
     redis
+    yarn
   ]
 end
 
