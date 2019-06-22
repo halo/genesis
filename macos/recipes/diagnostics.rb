@@ -20,6 +20,6 @@ profile_hash = {
   ]
 }
 
-osx_profile 'Configure Privacy' do
+osx_profile 'Configure Diagnostics' do
   profile profile_hash
 end
