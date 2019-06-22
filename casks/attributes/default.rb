@@ -4,6 +4,7 @@ default[:cask][:apps] = %w[
   font-roboto
   font-roboto-condensed
   google-chrome
+  iterm2
   mumble
   omnidisksweeper
   quicksilver

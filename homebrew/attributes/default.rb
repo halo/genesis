@@ -5,7 +5,6 @@ default[:homebrew][:formulae] = %w[
   autojump
   duti
   ffmpeg
-  iterm2
   openssl
   rbenv
   telnet
