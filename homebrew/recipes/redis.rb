@@ -6,6 +6,6 @@ launchd 'install-redis-agent' do
   program_arguments [redis_executable_path.to_s, redis_config_path.to_s]
   username Console.user
   run_at_load true
-  action :enable
+  action :create
   only_if { redis_executable_path.executable? }
 end

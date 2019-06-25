@@ -43,6 +43,6 @@ launchd 'install-nginx-agent' do
   program nginx_executable_path.to_s
   username Console.user
   run_at_load true
-  action :enable
+  action :create
   only_if { nginx_executable_path.executable? }
 end

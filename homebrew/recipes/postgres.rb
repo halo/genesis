@@ -5,6 +5,6 @@ launchd 'install-postgres-agent' do
   program_arguments [postgres_executable_path.to_s, '-D', Homebrew.var_path.join('postgres').to_s]
   username Console.user
   run_at_load true
-  action :enable
+  action :create
   only_if { postgres_executable_path.executable? }
 end
