@@ -38,6 +38,8 @@ template nginx_configs_path.join('projects.conf').to_s do
   group 'staff'
 end
 
+# sudo launchctl bootout system/io.github.halo.nginx
+# sudo launchctl bootstrap system /Library/LaunchDaemons/io.github.halo.nginx.plist
 launchd 'install-nginx-agent' do
   label 'io.github.halo.nginx'
   program nginx_executable_path.to_s
