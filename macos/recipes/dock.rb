@@ -25,7 +25,7 @@ profile_hash = {
           'tile-data' => {
             'file-type' => 1,
             'file-data' => {
-              '_CFURLString' => '/Applications/Mail.app',
+              '_CFURLString' => '/System/Applications/Mail.app',
               '_CFURLStringType' => 0
             },
           }
@@ -33,7 +33,6 @@ profile_hash = {
         {
           'tile-type' => 'file-tile',
           'tile-data' => {
-            'file-label' => 'Chrome', # Instead of "Google Chrome"
             'file-type' => 1,
             'file-data' => {
               '_CFURLString' => '/Applications/Google Chrome.app',
