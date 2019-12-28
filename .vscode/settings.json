@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "**/tmp/**/cache": true,
+    "**/tmp/**/nodes": true
+  }
+}
