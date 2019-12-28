@@ -1,5 +1,5 @@
 name 'homebrew'
-version '0.2.0'
+version '1.0.0'
 maintainer 'halo'
 
 depends 'rbenv'
