@@ -27,9 +27,7 @@ template nginx_config_path.join('nginx.conf').to_s do
   group 'staff'
 end
 
-projects_path = Pathname.new('~/Code').expand_path
-
-directory projects_path.to_s do
+directory Home.projects.to_s do
   mode '755'
   owner Console.user
   group 'staff'
@@ -38,16 +36,16 @@ end
 template nginx_configs_path.join('projects.conf').to_s do
   source 'nginx/projects.conf.erb'
   variables(
-    projects_path: projects_path.to_s
+    projects_path: Home.projects.to_s
   )
   owner Console.user
   group 'staff'
 end
 
-# sudo launchctl bootstrap system /Library/LaunchDaemons/io.github.halo.nginx.plist
-# sudo launchctl bootout system/io.github.halo.nginx
+# sudo launchctl bootstrap system /Library/LaunchDaemons/io.github.halo.genesis.nginx.plist
+# sudo launchctl bootout system/io.github.halo.genesis.nginx
 launchd 'install-nginx-agent' do
-  label 'io.github.halo.nginx'
+  label Identifier.join('nginx')
   program nginx_executable_path.to_s
   username Console.user
   run_at_load true

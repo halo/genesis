@@ -21,10 +21,12 @@ Start `1Password` and enter your account credentials.
 
 
 
-### Things you usually forget to backup
+### Common things to manually restore
 
 * Development Postgres DB
-* SSH keys
+* SSH keys at `~/.ssh`
 * Reminders
 * Uncommited changes in `.dotfiles` or `.githooks` or `.genesis`
 * Files on the Desktop
+* Mail at `~/Library/Accounts` and `~/Library/Mail`
+* Postico at `~/Library/Containers/at.eggerapps.Postico/Data/Library/Application\ Support/Postico`

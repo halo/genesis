@@ -2,8 +2,10 @@
 default[:homebrew][:formulae] = %w[
   autoconf
   autojump
+  cmake
   duti
   ffmpeg
+  mas
   openssl
   rbenv
   telnet
@@ -30,4 +32,8 @@ end
 
 default[:homebrew][:edge_formulae] = %w[
   youtube-dl
+]
+
+default[:vscode][:extensions] = %w[
+  rebornix.ruby
 ]
