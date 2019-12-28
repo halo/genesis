@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Exit if any command fails
+set -e
+
+# Obtain superuser privileges right from the start
+sudo echo
+
+# Install Chef if needed
+if [ ! -x /opt/chef/bin/chef-solo ]; then
+  echo "Installing Chef..."
+  curl --location --silent https://omnitruck.chef.io/install.sh | sudo sh > /dev/null
+fi
+
+echo "Running Genesis..."
+sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
