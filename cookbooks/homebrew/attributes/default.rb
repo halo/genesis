@@ -36,4 +36,5 @@ default[:homebrew][:edge_formulae] = %w[
 
 default[:vscode][:extensions] = %w[
   rebornix.ruby
+  Anjali.clipboard-history
 ]
