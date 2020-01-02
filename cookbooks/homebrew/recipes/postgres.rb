@@ -5,7 +5,7 @@ directory data_path.to_s do
   recursive true
 end
 
-if Console.profile? :orange do
+if Console.profile? :orange
   # sudo launchctl bootstrap system /Library/LaunchDaemons/io.github.halo.genesis.postgres.plist
   # sudo launchctl bootout system/io.github.halo.genesis.postgres
   launchd 'install-postgres-agent' do

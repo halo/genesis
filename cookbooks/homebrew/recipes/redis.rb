@@ -1,7 +1,7 @@
 redis_executable_path = Homebrew.bin_path.join('redis-server')
 redis_config_path = Homebrew.etc_path.join('redis.conf')
 
-if Console.profile? :orange do
+if Console.profile? :orange
   # sudo launchctl bootstrap system /Library/LaunchDaemons/io.github.halo.genesis.redis.plist
   # sudo launchctl bootout system/io.github.halo.genesis.redis
   launchd 'install-redis-agent' do
