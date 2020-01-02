@@ -29,7 +29,9 @@ Start `1Password` and enter your account credentials.
 * Uncommited changes in `.dotfiles` or `.githooks` or `.genesis`
 * Files on the Desktop
 * Mail at `~/Library/Accounts` and `~/Library/Mail`
+* Reminders at `~/Library/Reminders`
 * Postico at `~/Library/Containers/at.eggerapps.Postico/Data/Library/Application\ Support/Postico`
+* Create sharing user if relevant
 
 ### Things that come up when you most need them
 

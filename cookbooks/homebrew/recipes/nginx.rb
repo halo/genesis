@@ -42,13 +42,15 @@ template nginx_configs_path.join('projects.conf').to_s do
   group 'staff'
 end
 
-# sudo launchctl bootstrap system /Library/LaunchDaemons/io.github.halo.genesis.nginx.plist
-# sudo launchctl bootout system/io.github.halo.genesis.nginx
-launchd 'install-nginx-agent' do
-  label Identifier.join('nginx')
-  program nginx_executable_path.to_s
-  username Console.user
-  run_at_load true
-  action :create
-  only_if { nginx_executable_path.executable? }
+if Console.profile? :orange do
+  # sudo launchctl bootstrap system /Library/LaunchDaemons/io.github.halo.genesis.nginx.plist
+  # sudo launchctl bootout system/io.github.halo.genesis.nginx
+  launchd 'install-nginx-agent' do
+    label Identifier.join('nginx')
+    program nginx_executable_path.to_s
+    username Console.user
+    run_at_load true
+    action :create
+    only_if { nginx_executable_path.executable? }
+  end
 end
