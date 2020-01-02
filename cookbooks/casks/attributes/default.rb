@@ -7,15 +7,14 @@ default[:cask][:apps] = %w[
   google-chrome
   iterm2
   omnidisksweeper
-  signal
   tor-browser
-  vienna
   visual-studio-code
 ]
 
 if Console.profile? :orange, :blue
   default[:cask][:apps] += %w[
     1password
+    dash
     firefox
     postico
   ]
@@ -24,5 +23,15 @@ end
 if Console.profile? :blue
   default[:cask][:apps] += %w[
     docker
+    vienna
   ]
+  end
 end
+
+unless Console.profile? :blue
+  default[:cask][:apps] += %w[
+    signal
+  ]
+  end
+end
+
