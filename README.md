@@ -21,18 +21,21 @@ Start `1Password` and enter your account credentials.
 
 
 
-### Common things to manually restore
+### Data easy to forget when restoring
 
 * Development Postgres DB
 * SSH keys at `~/.ssh`
-* Reminders
 * Uncommited changes in `.dotfiles` or `.githooks` or `.genesis`
 * Files on the Desktop
+
+### Apps to manually restore
+
 * Mail at `~/Library/Accounts` and `~/Library/Mail`
 * Reminders at `~/Library/Reminders`
 * Postico at `~/Library/Containers/at.eggerapps.Postico/Data/Library/Application\ Support/Postico`
-* Create sharing user if relevant
 
-### Things that come up when you most need them
+### Drivers and basics
 
+* Create sharing user
 * Install printer drivers
+* Install card reader drivers
