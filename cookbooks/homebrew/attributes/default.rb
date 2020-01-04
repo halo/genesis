@@ -1,4 +1,9 @@
 
+default[:homebrew][:taps] = %w[
+  heroku/brew
+  homebrew/cask-fonts
+]
+
 default[:homebrew][:formulae] = %w[
   autoconf
   autojump
@@ -17,6 +22,7 @@ default[:homebrew][:formulae] = %w[
 if Console.profile?(:orange)
   default[:homebrew][:formulae] += %w[
     ghostscript
+    heroku/brew/heroku
     imagemagick
     memcached
     nginx
