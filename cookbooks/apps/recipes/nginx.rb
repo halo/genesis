@@ -50,6 +50,7 @@ if Console.profile? :orange
     program nginx_executable_path.to_s
     username Console.user
     run_at_load true
+    environment_variables({ OBJC_DISABLE_INITIALIZE_FORK_SAFETY: true })
     action :create
     only_if { nginx_executable_path.executable? }
   end

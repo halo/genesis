@@ -2,6 +2,7 @@ name 'default'
 version '1.0.0'
 maintainer 'halo'
 
+depends 'apps'
 depends 'casks'
 depends 'dotfiles'
 depends 'gems'
