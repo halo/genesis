@@ -19,11 +19,10 @@ action :sync_clean_master do
     only_if '[ -z "$(git status --porcelain)" ]', cwd: new_resource.destination
   end
 
-  git "sync if on master `#{new_resource.destination}`" do
-    repository new_resource.repository
-    destination new_resource.destination
-    action :sync
-    revision 'master'
+  # Cannot use git resource here because it changes the remote origin.
+  execute "sync if on master – `#{new_resource.destination}`" do
+    command 'git pull origin master'
+    cwd new_resource.destination
     user new_resource.user
     group new_resource.group
     only_if { Internet.online? }
