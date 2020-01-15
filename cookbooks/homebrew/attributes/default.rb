@@ -39,10 +39,3 @@ end
 default[:homebrew][:edge_formulae] = %w[
   youtube-dl
 ]
-
-default[:vscode][:extensions] = %w[
-  Anjali.clipboard-history
-  BriteSnow.vscode-toggle-quotes
-  rebornix.ruby
-  sianglim.slim
-]

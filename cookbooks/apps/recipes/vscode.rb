@@ -1,6 +1,6 @@
 code_executable_path = Homebrew.bin_path.join('code')
 
-node[:vscode][:extensions].each do |extension|
+node[:apps][:vscode_extensions].each do |extension|
   execute "install VSCode extension #{extension}" do
     command "#{code_executable_path} --install-extension #{extension}"
     user Console.user
