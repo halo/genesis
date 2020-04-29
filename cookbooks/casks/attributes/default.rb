@@ -14,7 +14,7 @@ default[:cask][:apps] = %w[
 if Console.profile? :orange, :blue
   default[:cask][:apps] += %w[
     1password
-    dash
+    dash4
     firefox
     postico
   ]

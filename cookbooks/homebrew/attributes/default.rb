@@ -2,6 +2,7 @@
 default[:homebrew][:taps] = %w[
   heroku/brew
   homebrew/cask-fonts
+  homebrew/cask-versions
 ]
 
 default[:homebrew][:formulae] = %w[
