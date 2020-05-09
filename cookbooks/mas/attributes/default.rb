@@ -4,8 +4,9 @@ default[:mas][:apps] = [
   409203825, # Numbers 6.2.1
 ]
 
-if Console.profile? :orange, :blue
+if Console.profile? :orange
   default[:mas][:apps] += [
+    406825478, # Telephone SIP client
     497799835, # Xcode 11.3
     824171161, # Affinity Designer 1.7.3
   ]
