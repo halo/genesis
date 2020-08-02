@@ -3,13 +3,13 @@ default[:cask][:apps] = %w[
   cyberduck
   font-inconsolata
   font-roboto
-  font-roboto-condensed
   google-chrome
   iterm2
   omnidisksweeper
   tor-browser
   visual-studio-code
 ]
+# font-roboto-condensed broken?
 
 if Console.profile? :orange, :blue
   default[:cask][:apps] += %w[
