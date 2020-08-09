@@ -5,6 +5,7 @@ default[:homebrew][:taps] = %w[
   homebrew/cask-versions
 ]
 
+# svn is needed for some google font casks
 default[:homebrew][:formulae] = %w[
   autoconf
   autojump
@@ -14,6 +15,7 @@ default[:homebrew][:formulae] = %w[
   mas
   openssl
   rbenv
+  svn
   telnet
   tldr
   youtube-dl
