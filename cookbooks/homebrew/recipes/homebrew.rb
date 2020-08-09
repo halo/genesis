@@ -17,7 +17,7 @@ directory cache_directory.to_s do
 end
 
 remote_file install_script do
-  source 'https://raw.githubusercontent.com/Homebrew/install/master/install'
+  source 'https://raw.githubusercontent.com/Homebrew/install/master/install.sh'
   user Console.user
   group 'staff'
   mode '0755'
@@ -26,7 +26,7 @@ end
 
 execute 'install homebrew' do
   command install_script
-  environment({ HOME: Home.path.to_s, USER: Console.user })
+  environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'
   creates '/usr/local/bin/brew'
