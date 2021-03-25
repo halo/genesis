@@ -55,6 +55,10 @@ profile_hash = {
   ]
 }
 
-osx_profile 'Configure Dock' do
-  profile profile_hash
+directory node[:macos][:mobileconfig_path].to_s do
+  recursive true
+end
+
+file node[:macos][:mobileconfig_path].join('dock.mobileconfig') do
+  content profile_hash.to_plist
 end

@@ -14,3 +14,8 @@ fi
 
 echo "Running Genesis..."
 sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
+
+echo ""
+echo "Do not forget to install these profiles manually:"
+echo "open '/Library/Application Support/io.github.halo.genesis/profiles'"
+echo ""

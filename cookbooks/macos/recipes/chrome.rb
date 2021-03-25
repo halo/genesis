@@ -47,12 +47,11 @@ profile_hash = {
       DefaultWebUsbGuardSetting: 2,
       # Enforce these extensions to be installed
       ExtensionInstallForcelist: [
-        'aomjjhallfgjeglblehebfpbcfeobpgk', # 1Password
-        'dpjamkmjmigaoobjbekmfgabipmfilij', # Empty New Tab Page
-        'enfegiojkdinjbgodgigkimlgacpbene', # Nuke'm - Browsing Data Cleaner
-        'fhcgjolkccmbidfldomjliifgaodjagh', # Cookie AutoDelete
-        'gcbommkclmclpchllfjekcdonpmejbdp', # HTTPS Everywhere
-        'lokpenepehfdekijkebhpnpcjjpngpnd' # Mute and skip Youtube ads (note remove)
+        'aeblfdkhhhdcdjpifhhbdiojplfjncoa', # 1Password
+        'dpjamkmjmigaoobjbekmfgabipmfilij', # Empty New Tab Page (thakis@chromium.org)
+        'fhcgjolkccmbidfldomjliifgaodjagh', # https://github.com/Cookie-AutoDelete/Cookie-AutoDelete
+        'gcbommkclmclpchllfjekcdonpmejbdp', # https://github.com/EFForg/https-everywhere
+        'lokpenepehfdekijkebhpnpcjjpngpnd' # https://github.com/squgeim/yt-ad-autoskipper
       ],
       # Hide annoying stand-alone icon on startup
       HideWebStoreIcon: true,
@@ -86,6 +85,10 @@ profile_hash = {
   ]
 }
 
-osx_profile 'Configure Chrome' do
-  profile profile_hash
+directory node[:macos][:mobileconfig_path].to_s do
+  recursive true
+end
+
+file node[:macos][:mobileconfig_path].join('chrome.mobileconfig') do
+  content profile_hash.to_plist
 end

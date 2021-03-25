@@ -14,6 +14,6 @@ default[:apps][:vscode_extensions] = %w[
   sianglim.slim
   syler.sass-indented
   viktorzetterstrom.non-breaking-space-highlighter
-  wenfang.faster-new
+  wenfangdu.faster-new
   wingrunr21.vscode-ruby
 ]
