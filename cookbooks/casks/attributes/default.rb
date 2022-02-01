@@ -3,6 +3,7 @@ default[:cask][:apps] = %w[
   cyberduck
   font-inconsolata
   font-roboto
+  font-roboto-mono
   google-chrome
   iterm2
   omnidisksweeper
