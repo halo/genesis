@@ -51,7 +51,6 @@ profile_hash = {
         'dpjamkmjmigaoobjbekmfgabipmfilij', # Empty New Tab Page (thakis@chromium.org)
         'fhcgjolkccmbidfldomjliifgaodjagh', # https://github.com/Cookie-AutoDelete/Cookie-AutoDelete
         'gcbommkclmclpchllfjekcdonpmejbdp', # https://github.com/EFForg/https-everywhere
-        'lokpenepehfdekijkebhpnpcjjpngpnd' # https://github.com/squgeim/yt-ad-autoskipper
       ],
       # Hide annoying stand-alone icon on startup
       HideWebStoreIcon: true,
