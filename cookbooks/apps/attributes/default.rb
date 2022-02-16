@@ -1,12 +1,12 @@
 default[:apps][:vscode_extensions] = %w[
   aeschli.vscode-css-formatter
-  alefragnani.project-manager
   aliariff.auto-add-brackets
   anjali.clipboard-history
   britesnow.vscode-toggle-quotes
   dae.vscode-refresh-browser
   dotjoshjohnson.xml
   eamodio.gitlens
+  kdcro101.favorites
   mikeburgh.xml-format
   ms-vsliveshare.vsliveshare
   patbenatar.advanced-new-file
