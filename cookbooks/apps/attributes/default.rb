@@ -1,9 +1,9 @@
 default[:apps][:vscode_extensions] = %w[
   aeschli.vscode-css-formatter
+  alefragnani.project-manager
   aliariff.auto-add-brackets
   anjali.clipboard-history
   britesnow.vscode-toggle-quotes
-  coenraads.bracket-pair-colorizer-2
   dae.vscode-refresh-browser
   dotjoshjohnson.xml
   eamodio.gitlens
