@@ -5,7 +5,6 @@ default[:apps][:vscode_extensions] = %w[
   britesnow.vscode-toggle-quotes
   dae.vscode-refresh-browser
   dotjoshjohnson.xml
-  eamodio.gitlens
   kdcro101.favorites
   mikeburgh.xml-format
   ms-vsliveshare.vsliveshare
