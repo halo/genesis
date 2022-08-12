@@ -1,8 +1,7 @@
 default[:gems][:gems] = %w[
-  bundler
 ]
 
-if Console.profile? :orange, :blue
+if Console.profile? :orange
   default[:gems][:gems] += %w[
     rubocop
     rubocop-rails

@@ -7,7 +7,7 @@ execute 'Hide ~/Applications' do
   only_if { user_applications_path.directory? }
 end
 
-if Console.profile? :orange, :blue
+if Console.profile? :orange
   execute 'Reveal ~/Library' do
     command "chflags nohidden #{user_library_path}"
     only_if "ls -lOd #{user_library_path} | grep hidden"

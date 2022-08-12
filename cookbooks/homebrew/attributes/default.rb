@@ -14,24 +14,19 @@ default[:homebrew][:formulae] = %w[
   ffmpeg
   mas
   openssl
-  rbenv
   svn
   telnet
   tldr
   youtube-dl
 ]
 
-# ghostscript is needed for imagemagick to handle PDFs
 if Console.profile?(:orange)
   default[:homebrew][:formulae] += %w[
-    ghostscript
+    frum
     heroku/brew/heroku
-    imagemagick
     memcached
-    nginx
     nmap
     node
-    passenger
     postgresql
     redis
     vips

@@ -6,30 +6,16 @@ default[:cask][:apps] = %w[
   font-roboto-mono
   google-chrome
   iterm2
-  omnidisksweeper
   tor-browser
+  signal
   visual-studio-code
 ]
 # font-roboto-condensed broken?
 
-if Console.profile? :orange, :blue
+if Console.profile? :orange
   default[:cask][:apps] += %w[
     1password
     dash4
-    firefox
     postico
-  ]
-end
-
-if Console.profile? :blue
-  default[:cask][:apps] += %w[
-    docker
-    vienna
-  ]
-end
-
-unless Console.profile? :blue
-  default[:cask][:apps] += %w[
-    signal
   ]
 end
