@@ -15,7 +15,14 @@ fi
 echo "Running Genesis..."
 sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
 
+YELLOW='\033[0;33m'
+CLEAR='\033[0m'
+
+echo -e "Default \e[34mBlue"
+
 echo ""
-echo "Do not forget to install these profiles manually:"
-echo "open '/Library/Application Support/io.github.halo.genesis/profiles'"
+echo ""
+echo ""
+echo "${YELLOW}Do not forget to install these profiles manually:${CLEAR}"
+echo "${YELLOW}open '/Library/Application Support/io.github.halo.genesis/profiles'${CLEAR}"
 echo ""

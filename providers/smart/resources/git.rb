@@ -1,3 +1,5 @@
+unified_mode true
+
 actions :sync_clean_master
 
 default_action :sync_clean_master
