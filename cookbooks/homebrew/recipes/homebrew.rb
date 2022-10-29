@@ -29,7 +29,7 @@ execute 'install homebrew' do
   environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'
-  creates Homebrew.executable_path.to_s
+  creates Homebrew.brew_path.to_s
   only_if { Internet.online? }
 end
 
@@ -37,13 +37,13 @@ execute 'update homebrew' do
   environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'
-  command "#{Homebrew.executable_path} update || true"
+  command "#{Homebrew.brew_path} update || true"
 end
 
 execute 'disable analytics' do
   environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'
-  command "#{Homebrew.executable_path} analytics off"
-  only_if { shell_out("#{Homebrew.executable_path} analytics state", user: Console.user).stdout.include?('enabled') }
+  command "#{Homebrew.brew_path} analytics off"
+  only_if { shell_out("#{Homebrew.brew_path} analytics state", user: Console.user).stdout.include?('enabled') }
 end

@@ -13,7 +13,7 @@ module Homebrew
     path.join 'bin'
   end
 
-  def self.executable_path
+  def self.brew_path
     bin_path.join 'brew'
   end
 

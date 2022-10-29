@@ -11,6 +11,7 @@ default[:cask][:apps] = %w[
   signal
   syncthing
   tor-browser
+  tunnelblick
   visual-studio-code
 ]
 # font-roboto-condensed broken?
