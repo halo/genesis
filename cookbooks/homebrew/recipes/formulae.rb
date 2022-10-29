@@ -3,6 +3,6 @@ homebrew_package node[:homebrew][:formulae] do
 end
 
 homebrew_package node[:homebrew][:edge_formulae] do
-  action :upgrade
+  action(:upgrade)
   only_if { Internet.online? }
 end

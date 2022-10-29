@@ -13,7 +13,9 @@ if [ ! -x /opt/chef/bin/chef-solo ]; then
 fi
 
 echo "Running Genesis..."
-sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
+# Chef only knows /etc/local/bin/brew, but as long as `brew` is on the PATH, it'll work.
+# See https://github.com/chef/chef/blob/main/lib/chef/mixin/homebrew_user.rb
+PATH="$PATH:/opt/homebrew/bin" sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
 
 YELLOW='\033[0;33m'
 CLEAR='\033[0m'
