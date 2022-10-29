@@ -20,7 +20,7 @@ end
 
 execute 'run userlevel configuration' do
   environment(lazy { { frum_ROOT: frum_path.to_s } })
-  command %|eval "$(#{macos_binary} init)"; #{dotfiles_binary}|
+  command %|eval "$(#{frum_executable} init)"; #{dotfiles_binary}|
   user Console.user
   group 'staff'
   only_if { frum_executable.executable? }
