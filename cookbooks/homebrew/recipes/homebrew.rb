@@ -1,5 +1,5 @@
 install_script = File.join(Chef::Config[:file_cache_path], 'homebrew_installer')
-# cache_directory = Home.path.join('Library', 'Caches', 'Homebrew')
+# cache_directory = Home.path.join('Library/Caches/Homebrew')
 
 # directories = %w[bin etc include lib sbin share var opt share/zsh share/zsh/site-functions
 #                  var/homebrew var/homebrew/linked Cellar Caskroom Homebrew Frameworks]
@@ -17,7 +17,7 @@ install_script = File.join(Chef::Config[:file_cache_path], 'homebrew_installer')
 # end
 
 remote_file install_script do
-  source 'https://raw.githubusercontent.com/Homebrew/install/master/install.sh'
+  source 'https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh'
   user Console.user
   group 'staff'
   mode '0755'
@@ -29,7 +29,7 @@ execute 'install homebrew' do
   environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'
-  creates '/usr/local/bin/brew'
+  creates Homebrew.executable_path.to_s
   only_if { Internet.online? }
 end
 
@@ -37,13 +37,13 @@ execute 'update homebrew' do
   environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'
-  command '/usr/local/bin/brew update || true'
+  command "#{Homebrew.executable_path} update || true"
 end
 
 execute 'disable analytics' do
   environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'
-  command '/usr/local/bin/brew analytics off'
-  only_if { shell_out('/usr/local/bin/brew analytics state', user: Console.user).stdout.include?('enabled') }
+  command "#{Homebrew.executable_path} analytics off"
+  only_if { shell_out("#{Homebrew.executable_path} analytics state", user: Console.user).stdout.include?('enabled') }
 end

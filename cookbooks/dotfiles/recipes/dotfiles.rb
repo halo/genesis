@@ -1,6 +1,6 @@
 dotfiles_path = Home.path.join('.dotfiles')
-dotfiles_binary = dotfiles_path.join('bin', 'dotfiles')
-macos_binary = dotfiles_path.join('macos', 'bin', 'macos')
+dotfiles_binary = dotfiles_path.join('bin/dotfiles')
+macos_binary = dotfiles_path.join('macos/bin/macos')
 
 smart_git dotfiles_path.to_s do
   repository 'https://github.com/halo/dotfiles.git'

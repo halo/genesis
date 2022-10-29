@@ -9,6 +9,7 @@ default[:cask][:apps] = %w[
   iterm2
   raycast
   signal
+  syncthing
   tor-browser
   visual-studio-code
 ]

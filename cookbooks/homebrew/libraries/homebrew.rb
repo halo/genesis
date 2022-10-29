@@ -2,11 +2,19 @@ require 'pathname'
 
 module Homebrew
   def self.path
-    Pathname.new('/usr/local')
+    if RUBY_PLATFORM.include?('arm64')
+      Pathname.new('/opt/homebrew')
+    else
+      Pathname.new('/usr/local')
+    end
   end
 
   def self.bin_path
     path.join 'bin'
+  end
+
+  def self.executable_path
+    bin_path.join 'brew'
   end
 
   def self.sbin_path

@@ -22,5 +22,5 @@ execute "install ruby #{version}" do
   user Console.user
   group 'staff'
   only_if { frum_executable.executable? }
-  not_if { shell_out('/usr/local/bin/frum versions', user: Console.user).stdout.include?(version) }
+  not_if { shell_out("#{Homebrew.bin_path.join('frum')} versions", user: Console.user).stdout.include?(version) }
 end

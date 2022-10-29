@@ -1,6 +1,8 @@
-node[:homebrew][:formulae].each do |formula|
-  homebrew_package formula do
-    action(node[:homebrew][:edge_formulae].include?(formula) ? :upgrade : :install)
-    only_if { Internet.online? }
-  end
+homebrew_package node[:homebrew][:formulae] do
+  only_if { Internet.online? }
+end
+
+homebrew_package node[:homebrew][:edge_formulae] do
+  action(:upgrade)
+  only_if { Internet.online? }
 end

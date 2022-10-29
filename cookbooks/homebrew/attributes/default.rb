@@ -1,4 +1,3 @@
-
 default[:homebrew][:taps] = %w[
   heroku/brew
   homebrew/cask-fonts
@@ -16,8 +15,6 @@ default[:homebrew][:formulae] = %w[
   openssl
   svn
   telnet
-  tldr
-  youtube-dl
 ]
 
 if Console.profile?(:orange)
@@ -32,5 +29,6 @@ if Console.profile?(:orange)
 end
 
 default[:homebrew][:edge_formulae] = %w[
+  tldr
   youtube-dl
 ]
