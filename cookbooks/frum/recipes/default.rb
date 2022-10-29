@@ -17,7 +17,7 @@ version = node[:frum][:ruby]
 execute "install ruby #{version}" do
   cwd Home.path.to_s
   environment(lazy { { frum_ROOT: frum_path.to_s } })
-  command %{eval "$(#{frum_executable} init -)" && #{frum_executable} install #{version}}
+  command %{eval "$(#{frum_executable} init)" && #{frum_executable} install #{version}}
   creates frum_path.join('versions', version, 'bin').to_s
   user Console.user
   group 'staff'
