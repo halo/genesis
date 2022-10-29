@@ -4,6 +4,7 @@ default[:homebrew][:taps] = %w[
 ]
 
 # svn is needed for some google font casks
+# libffi is needed for building ruby, see https://github.com/rvm/rvm/issues/4968 and https://github.com/libffi/libffi/issues/571
 default[:homebrew][:formulae] = %w[
   autoconf
   autojump
@@ -11,6 +12,7 @@ default[:homebrew][:formulae] = %w[
   duti
   ffmpeg
   frum
+  libffi
   mas
   openssl
   svn

@@ -15,8 +15,21 @@ end
 
 version = node[:frum][:ruby]
 execute "install ruby #{version}" do
+  if arm?
+    # See https://github.com/rvm/rvm/issues/4968#issuecomment-757140525
+    environment(lazy do
+                  {
+                    frum_ROOT: frum_path.to_s,
+                    PKG_CONFIG_PATH: '/opt/homebrew/opt/libffi/lib/pkgconfig',
+                    LDFLAGS: '-L/opt/homebrew/opt/libffi/lib',
+                    CPPFLAGS: '-I/opt/homebrew/opt/libffi/include'
+                  }
+                end)
+  else
+    environment(lazy { { frum_ROOT: frum_path.to_s } })
+  end
+
   cwd Home.path.to_s
-  environment(lazy { { frum_ROOT: frum_path.to_s } })
   command %{eval "$(#{frum_executable} init)" && #{frum_executable} install #{version}}
   creates frum_path.join('versions', version, 'bin').to_s
   user Console.user
