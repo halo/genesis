@@ -2,7 +2,6 @@
 default[:homebrew][:taps] = %w[
   heroku/brew
   homebrew/cask-fonts
-  homebrew/cask-versions
 ]
 
 # svn is needed for some google font casks
@@ -12,6 +11,7 @@ default[:homebrew][:formulae] = %w[
   cmake
   duti
   ffmpeg
+  frum
   mas
   openssl
   svn
@@ -22,12 +22,9 @@ default[:homebrew][:formulae] = %w[
 
 if Console.profile?(:orange)
   default[:homebrew][:formulae] += %w[
-    frum
     heroku/brew/heroku
-    memcached
-    nmap
     node
-    postgresql
+    postgresql@14
     redis
     vips
     yarn

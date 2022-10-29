@@ -1,4 +1,4 @@
-directory = Home.path.join('Library', 'Developer', 'Xcode', 'UserData')
+directory = Home.path.join('Library/Developer/Xcode/UserData')
 template_file = directory.join('IDETemplateMacros.plist')
 
 directory directory.to_s do

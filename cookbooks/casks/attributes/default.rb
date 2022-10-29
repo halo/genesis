@@ -1,21 +1,15 @@
 default[:cask][:apps] = %w[
-  alfred
+  1password
   cyberduck
   font-inconsolata
   font-roboto
+  font-roboto-condensed
   font-roboto-mono
   google-chrome
   iterm2
-  tor-browser
+  raycast
   signal
+  tor-browser
   visual-studio-code
 ]
 # font-roboto-condensed broken?
-
-if Console.profile? :orange
-  default[:cask][:apps] += %w[
-    1password
-    dash4
-    postico
-  ]
-end

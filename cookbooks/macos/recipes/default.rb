@@ -1,6 +1,5 @@
 include_recipe 'macos::chrome'
 include_recipe 'macos::diagnostics'
-include_recipe 'macos::dock'
 include_recipe 'macos::finder'
 include_recipe 'macos::locate'
 include_recipe 'macos::restrictions'
