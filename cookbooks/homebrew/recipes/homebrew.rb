@@ -1,22 +1,6 @@
-install_script = File.join(Chef::Config[:file_cache_path], 'homebrew_installer')
-# cache_directory = Home.path.join('Library/Caches/Homebrew')
+install_script_path = File.join(Chef::Config[:file_cache_path], 'homebrew_installer')
 
-# directories = %w[bin etc include lib sbin share var opt share/zsh share/zsh/site-functions
-#                  var/homebrew var/homebrew/linked Cellar Caskroom Homebrew Frameworks]
-
-# directories.each do |dir|
-#   directory "/usr/local/#{dir}" do
-#     user Console.user
-#     group 'staff'
-#   end
-# end
-
-# directory cache_directory.to_s do
-#   user Console.user
-#   group 'admin'
-# end
-
-remote_file install_script do
+remote_file install_script_path do
   source 'https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh'
   user Console.user
   group 'staff'
@@ -25,7 +9,7 @@ remote_file install_script do
 end
 
 execute 'install homebrew' do
-  command install_script
+  command "sudo whoami && #{install_script_path}"
   environment({ HOME: Home.path.to_s, USER: Console.user })
   user Console.user
   group 'staff'

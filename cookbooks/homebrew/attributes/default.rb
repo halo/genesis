@@ -10,7 +10,7 @@ default[:homebrew][:formulae] = %w[
   cmake
   duti
   ffmpeg
-  frum
+  rbenv
   mas
   openssl
   svn
@@ -30,5 +30,4 @@ end
 
 default[:homebrew][:edge_formulae] = %w[
   tldr
-  youtube-dl
 ]

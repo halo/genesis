@@ -12,6 +12,12 @@ if [ ! -x /opt/chef/bin/chef-solo ]; then
   curl --location --silent https://omnitruck.chef.io/install.sh | sudo sh > /dev/null
 fi
 
+if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ]; then
+  # Somehow I could not forward sudo-TTY to chef's `execute` resource.
+  # So let's ensure homebrew right away.
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+fi
+
 echo "Running Genesis..."
 # Chef only knows `/etc/local/bin/brew`, which does not work for Apple Silicon.
 # See https://github.com/chef/chef/blob/main/lib/chef/mixin/homebrew_user.rb
