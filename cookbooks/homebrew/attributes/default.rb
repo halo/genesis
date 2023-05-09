@@ -12,6 +12,7 @@ default[:homebrew][:formulae] = %w[
   ffmpeg
   rbenv
   mas
+  mat2
   openssl
   svn
   telnet

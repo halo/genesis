@@ -39,3 +39,4 @@ Start `1Password` and enter your account credentials.
 * Create sharing user
 * Install printer drivers
 * Install card reader drivers
+
