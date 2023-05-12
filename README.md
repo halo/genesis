@@ -17,7 +17,8 @@ git clone https://github.com/halo/genesis ~/.genesis
 
 Start `1Password` and enter your account credentials.
 
-### Setup VPN manually as needed
+* Activate FileVault
+* Setup VPN
 
 
 
@@ -39,4 +40,4 @@ Start `1Password` and enter your account credentials.
 * Create sharing user
 * Install printer drivers
 * Install card reader drivers
-
+* Install YubiKey Manager and Personalization Tool
