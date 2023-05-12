@@ -10,10 +10,10 @@ default[:homebrew][:formulae] = %w[
   cmake
   duti
   ffmpeg
-  rbenv
   mas
   mat2
   openssl
+  rbenv
   svn
   telnet
 ]
@@ -21,9 +21,9 @@ default[:homebrew][:formulae] = %w[
 if Console.profile?(:orange)
   default[:homebrew][:formulae] += %w[
     heroku/brew/heroku
+    mkcert
     node
-    postgresql@14
-    redis
+    postgresql
     vips
     yarn
   ]
