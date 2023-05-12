@@ -11,6 +11,6 @@ colors.each do |color|
     source "#{color}.png"
     owner 'root'
     group 'wheel'
-    only_if { Console.user == color }
+    # only_if { Console.user == color }
   end
 end

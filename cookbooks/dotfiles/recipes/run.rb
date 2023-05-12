@@ -8,7 +8,7 @@ rbenv_init = %|eval "$(#{rbenv_executable} init - zsh)"; rbenv shell #{ruby_vers
 
 execute 'run dotfiles' do
   environment(lazy { { rbenv_ROOT: rbenv_path.to_s } })
-  command %|#{rbenv_init}; #{dotfiles_binary}|
+  command %(#{rbenv_init}; #{dotfiles_binary})
   user Console.user
   group 'staff'
   only_if { rbenv_executable.executable? }
@@ -16,7 +16,7 @@ end
 
 execute 'run userlevel configuration' do
   environment(lazy { { rbenv_ROOT: rbenv_path.to_s } })
-  command %|#{rbenv_init}; #{dotfiles_binary}|
+  command %(#{rbenv_init}; #{dotfiles_binary})
   user Console.user
   group 'staff'
   only_if { rbenv_executable.executable? }
@@ -24,6 +24,6 @@ end
 
 execute 'run root configuration' do
   environment(lazy { { rbenv_ROOT: rbenv_path.to_s } })
-  command %|#{rbenv_init}; #{macos_binary} --only-sudo|
+  command %(#{rbenv_init}; #{macos_binary} --only-sudo)
   only_if { rbenv_executable.executable? }
 end

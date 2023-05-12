@@ -20,6 +20,7 @@ Start `1Password` and enter your account credentials.
 * Update macOS
 * Activate FileVault
 * Setup VPN
+* Login to 1Password
 
 
 
