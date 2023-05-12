@@ -17,6 +17,7 @@ git clone https://github.com/halo/genesis ~/.genesis
 
 Start `1Password` and enter your account credentials.
 
+* Update macOS
 * Activate FileVault
 * Setup VPN
 

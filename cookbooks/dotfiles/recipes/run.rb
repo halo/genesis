@@ -4,7 +4,7 @@ macos_binary = dotfiles_path.join('macos/bin/macos')
 rbenv_path = Pathname.new node[:rbenv][:root]
 rbenv_executable = Homebrew.bin_path.join('rbenv')
 ruby_version = node[:rbenv][:ruby]
-rbenv_init = %|eval "$(#{rbenv_executable} init)"; rbenv shell #{ruby_version}|
+rbenv_init = %|eval "$(#{rbenv_executable} init - zsh)"; rbenv shell #{ruby_version}|
 
 execute 'run dotfiles' do
   environment(lazy { { rbenv_ROOT: rbenv_path.to_s } })
