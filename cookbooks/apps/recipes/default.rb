@@ -1,2 +1,4 @@
 include_recipe 'apps::duti'
-include_recipe 'apps::vscode'
+
+# FIXME: These are installed per user-space
+# include_recipe 'apps::vscode'
