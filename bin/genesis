@@ -15,14 +15,11 @@ fi
 if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ]; then
   # Somehow I could not forward sudo-TTY to chef's `execute` resource.
   # So let's ensure homebrew right away.
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 echo "Running Genesis..."
-# Chef only knows `/etc/local/bin/brew`, which does not work for Apple Silicon.
-# See https://github.com/chef/chef/blob/main/lib/chef/mixin/homebrew_user.rb
-# But as long as `brew` is on the PATH, it'll work. So we add it right here.
-PATH="$PATH:/opt/homebrew/bin" sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
+sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
 
 YELLOW='\033[0;33m'
 CLEAR='\033[0m'
