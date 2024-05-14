@@ -6,16 +6,26 @@ set -e
 # Obtain superuser privileges right from the start
 sudo echo
 
-# Install Chef if needed
-if [ ! -x /opt/chef/bin/chef-solo ]; then
+# Function to install Chef
+install_chef() {
   echo "Installing Chef..."
   curl --location --silent https://omnitruck.chef.io/install.sh | sudo sh > /dev/null
+}
+
+# Function to install Homebrew
+install_homebrew() {
+  echo "Installing Homebrew..."
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+# Install Chef if not already installed or specifically requested
+if [ ! -x /opt/chef/bin/chef-solo ] || [[ $* == *--update* ]]; then
+  install_chef
 fi
 
-if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ]; then
-  # Somehow I could not forward sudo-TTY to chef's `execute` resource.
-  # So let's ensure homebrew right away.
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Install Homebrew if not already installed or specifically requested
+if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ] || [[ $* == *--update* ]]; then
+  install_homebrew
 fi
 
 echo "Running Genesis..."
