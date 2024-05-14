@@ -22,6 +22,7 @@ profile_hash = {
 
       # Disable Navigation Error Tips ("similar pages when a page can't be found")
       AlternateErrorPagesEnabled: false,
+      AdvancedProtectionAllowed: false,
       # Disable autofill
       AutofillAddressEnabled: false,
       AutofillCreditCardEnabled: false,
@@ -29,14 +30,14 @@ profile_hash = {
       BrowserSignin: 0,
       # Don't mess with DNS
       BuiltInDnsClientEnabled: false,
+      # Turned on for some users by default already
+      BlockThirdPartyCookies: true,
       # Don't suggest other pages if url is misspelled
       DefaultBrowserSettingEnabled: false,
       # Disable Desktop notifications entirely
       DefaultNotificationsSetting: 2,
-      # Disable in-built Flash player
-      DefaultPluginsSetting: 2,
       # Allow Developer Tools even in extensions
-      DeveloperToolsAllowed: true,
+      DeveloperToolsAvailability: 1,
       # Use system print dialog
       DisablePrintPreview: true,
       # Minimize search url footpring
@@ -63,8 +64,11 @@ profile_hash = {
       ImportSearchEngine: false,
       # Don't send metrics and crash reports
       MetricsReportingEnabled: false,
+      PasswordLeakDetectionEnabled: false,
       # Disable Chromes internal password manager
       PasswordManagerEnabled: false,
+      PrivacySandboxAdMeasurementEnabled: false,
+      PrivacySandboxAdTopicsEnabled: false,
       ShowAppsShortcutInBookmarkBar: false,
       # Enable this, trusting that this is a local digest check
       SafeBrowsingEnabled: true,
