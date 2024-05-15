@@ -1,15 +1,19 @@
-user_applications_path = Home.path.join('Applications')
-user_library_path = Home.path.join('Library')
+Genesis.users do |user|
+  execute 'Hide ~/Applications' do
+    command "chflags hidden #{user.paths.applications}"
+    not_if "ls -lOd #{user.paths.applications} | grep hidden"
+    only_if { user.paths.applications.directory? }
+  end
 
-execute 'Hide ~/Applications' do
-  command "chflags hidden #{user_applications_path}"
-  only_if "ls -lOd #{user_applications_path} | grep hidden"
-  only_if { user_applications_path.directory? }
-end
+  execute 'Hide ~/Public' do
+    command "chflags hidden #{user.paths.public}"
+    not_if "ls -lOd #{user.paths.public} | grep hidden"
+  end
 
-if Console.profile? :orange
-  execute 'Reveal ~/Library' do
-    command "chflags nohidden #{user_library_path}"
-    only_if "ls -lOd #{user_library_path} | grep hidden"
+  if user.orange?
+    execute 'Reveal ~/Library' do
+      command "chflags nohidden #{user.paths.library}"
+      only_if "ls -lOd #{user.paths.library} | grep hidden"
+    end
   end
 end

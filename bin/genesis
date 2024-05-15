@@ -19,13 +19,17 @@ install_homebrew() {
 }
 
 # Install Chef if not already installed or specifically requested
-if [ ! -x /opt/chef/bin/chef-solo ] || [[ $* == *--update* ]]; then
-  install_chef
+if [[ $* != *--skip-chef* ]]; then
+  if [ ! -x /opt/chef/bin/chef-solo ] || [[ $* == *--update* ]]; then
+    install_chef
+  fi
 fi
 
 # Install Homebrew if not already installed or specifically requested
-if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ] || [[ $* == *--update* ]]; then
-  install_homebrew
+if [[ $* != *--skip-brew* ]]; then
+  if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ] || [[ $* == *--update* ]]; then
+    install_homebrew
+  fi
 fi
 
 echo "Running Genesis..."

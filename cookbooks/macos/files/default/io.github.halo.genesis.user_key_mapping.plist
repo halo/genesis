@@ -10,6 +10,7 @@
         <string>/usr/bin/hidutil</string>
         <string>property</string>
         <string>--set</string>
+        <!-- Backlight on F5/F6 -->
         <string>{"UserKeyMapping":[
             {
               "HIDKeyboardModifierMappingSrc": 0xC000000CF,

@@ -1,21 +1,19 @@
-directory = Home.path.join('.ssh')
-config_file = directory.join('config')
-authorized_keys_file = directory.join('authorized_keys')
+Genesis.users do |user|
+  directory user.paths.ssh.to_s do
+    owner user.username
+    group 'staff'
+    mode '0700'
+  end
 
-directory directory.to_s do
-  owner Console.user
-  group 'staff'
-  mode '0700'
-end
+  file user.paths.ssh.join('config').to_s do
+    owner user.username
+    group 'staff'
+    mode '0644'
+  end
 
-file config_file.to_s do
-  owner Console.user
-  group 'staff'
-  mode '0644'
-end
-
-file authorized_keys_file.to_s do
-  owner Console.user
-  group 'staff'
-  mode '0644'
+  file user.paths.ssh.join('authorized_keys').to_s do
+    owner user.username
+    group 'staff'
+    mode '0644'
+  end
 end

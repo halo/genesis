@@ -17,10 +17,12 @@ profile_hash = {
       'PayloadEnabled' => true,
       allowAssistant: false, # Disable Siri
       allowCloudAddressBook: false,
+      allowCloudBackup: false,
       allowCloudBookmarks: false,
       allowCloudCalendar: false,
       allowCloudDesktopAndDocuments: false,
       allowCloudDocumentSync: false, # (Deprecated on unsupervised devices)
+      allowCloudFreeform: false,
       allowCloudKeychainSync: false,
       allowCloudMail: false,
       allowCloudNotes: false,
