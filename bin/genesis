@@ -38,8 +38,6 @@ sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname 
 YELLOW='\033[0;33m'
 CLEAR='\033[0m'
 
-echo -e "Default \e[34mBlue"
-
 echo ""
 echo ""
 echo ""

@@ -19,7 +19,15 @@ module Genesis
     end
 
     def orange?
-      username == :orange
+      username == 'orange'
+    end
+
+    def green?
+      username == 'green'
+    end
+
+    def opinionated?
+      orange? || green?
     end
   end
 end

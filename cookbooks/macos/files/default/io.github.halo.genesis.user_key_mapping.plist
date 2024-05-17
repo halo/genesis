@@ -1,4 +1,57 @@
-<!-- See https://github.com/amarsyla/hidutil-key-remapping-generator -->
+<!--
+Find out your hex values of F1-F12. The first row is for F1, the last for F12.
+The left column means while holding `fn` and right column means without `fn`.
+
+ioreg -l | grep FnFunctionUsageMap | grep -Eo "0x[0-9a-f]+,0x[0-9a-f]+"
+
+Convert the hex value from 32-bit to 64 bit by adding 0000 in the beginning and the middle.
+0x000c00cf becomes  0000 000c 0000 00cf
+then you may remove leading zeros, so you end up with 0xc000000cf
+
+On M2 this is what it looks like:
+
+0xff00000005 # F1
+0xff00000004 # F2
+0xff0100000010 # F3
+0xc00000221 # F4
+0xc000000cf # F5
+0x10000009b # F6
+0xc000000b4 # F7
+0xc000000cd # F8
+0xc000000b3 # F9
+0xc000000e2 # F10
+0xc000000ea # F11
+0xc000000e9 # F12
+
+Other keys can be found here: https://github.com/amarsyla/hidutil-key-remapping-generator
+and https://github.com/amarsyla/hidutil-key-remapping-generator/blob/master/src/helpers/keys.js
+
+You can use some keys, e.g. F13 and F16, for your convenience.
+See also https://developer.apple.com/library/archive/technotes/tn2450/_index.html
+
+0x700000068 # F13    (calculated using 700000000 | keycode)
+0x70000006B # F16
+0x70000006c # F17
+0x70000006d # F18
+0x70000006e # F19
+
+I don't think F20 and beyond works reliably (it might mean "paste" or "up" in Terminal)
+Also, these already have a fixed meaning:
+
+0x700000069 # F14 Decrease Screen Light
+0x70000006a # F15 Increase Screen Light
+
+I don't know the source for the following possible destination mappings, but here they are:
+
+0xFF00000009 - Keyboard Brightness Decrement
+0xFF00000008 - Keyboard Brightness Increment
+
+Try it out in Terminal using:
+
+hidutil property -s '{"UserKeyMapping":[
+]}'
+-->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -10,15 +63,26 @@
         <string>/usr/bin/hidutil</string>
         <string>property</string>
         <string>--set</string>
-        <!-- Backlight on F5/F6 -->
+        <!-- F3 = Decrease Backlight -->
+        <!-- F4 = Decrease Backlight -->
+        <!-- F5 = F13 -->
+        <!-- F6 = F16 -->
         <string>{"UserKeyMapping":[
             {
-              "HIDKeyboardModifierMappingSrc": 0xC000000CF,
+              "HIDKeyboardModifierMappingSrc": 0xff0100000010,
               "HIDKeyboardModifierMappingDst": 0xFF00000009
             },
             {
-              "HIDKeyboardModifierMappingSrc": 0x10000009B,
+              "HIDKeyboardModifierMappingSrc": 0xc00000221,
               "HIDKeyboardModifierMappingDst": 0xFF00000008
+            },
+            {
+              "HIDKeyboardModifierMappingSrc": 0xc000000cf,
+              "HIDKeyboardModifierMappingDst": 0x700000068
+            },
+            {
+              "HIDKeyboardModifierMappingSrc": 0x10000009b,
+              "HIDKeyboardModifierMappingDst": 0x70000006B
             }
         ]}</string>
     </array>
