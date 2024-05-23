@@ -3,6 +3,7 @@ default[:cask][:apps] = %w[
   cyberduck
   font-inconsolata
   font-roboto
+  font-roboto-condensed
   font-roboto-mono
   google-chrome
   iterm2
@@ -10,7 +11,5 @@ default[:cask][:apps] = %w[
   signal
   syncthing
   tor-browser
-  tunnelblick
   visual-studio-code
 ]
-# font-roboto-condensed broken?

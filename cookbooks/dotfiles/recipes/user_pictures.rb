@@ -1,4 +1,4 @@
-container = Pathname.new('Library').join 'User Pictures', 'Unicolor'
+container = Genesis::Paths.user_pictures_unicolor
 
 directory container.to_s do
   recursive true
@@ -11,6 +11,5 @@ colors.each do |color|
     source "#{color}.png"
     owner 'root'
     group 'wheel'
-    # only_if { Console.user == color }
   end
 end

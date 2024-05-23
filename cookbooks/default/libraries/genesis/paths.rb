@@ -6,6 +6,10 @@ module Genesis
       Pathname.new('/Library/LaunchDaemons')
     end
 
+    def self.user_pictures_unicolor
+      Pathname.new('/Library/User Pictures/Unicolor')
+    end
+
     def initialize(home:)
       @home = home
     end

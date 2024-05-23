@@ -1,7 +1,7 @@
-dotfiles_path = Home.path.join('.dotfiles')
-
-smart_git dotfiles_path.to_s do
-  repository 'https://github.com/halo/dotfiles.git'
-  user Console.user
-  group 'staff'
+Genesis.users do |account|
+  smart_git account.paths.home.join('.dotfiles').to_s do
+    repository 'https://github.com/halo/dotfiles.git'
+    user account.username
+    group 'staff'
+  end
 end

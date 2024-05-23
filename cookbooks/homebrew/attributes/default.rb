@@ -1,8 +1,3 @@
-default[:homebrew][:taps] = %w[
-  heroku/brew
-  homebrew/cask-fonts
-]
-
 # svn is needed for some google font casks
 default[:homebrew][:formulae] = %w[
   autoconf
@@ -12,22 +7,19 @@ default[:homebrew][:formulae] = %w[
   ffmpeg
   mas
   mat2
+  mkcert
+  node
   openssl
   rbenv
+  ruby-build
   svn
   telnet
+  vips
+  yarn
 ]
 
-if Console.profile?(:orange)
-  default[:homebrew][:formulae] += %w[
-    heroku/brew/heroku
-    mkcert
-    node
-    postgresql
-    vips
-    yarn
-  ]
-end
+# Doesn't work for some reason (package not found)
+# postgresql
 
 default[:homebrew][:edge_formulae] = %w[
   tldr

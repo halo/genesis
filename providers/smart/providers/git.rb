@@ -28,6 +28,7 @@ action :sync_clean_master do
     only_if { Internet.online? }
     only_if 'git rev-parse --abbrev-ref HEAD | grep -w master', cwd: new_resource.destination
     only_if '[ -z "$(git status --porcelain)" ]', cwd: new_resource.destination
+    only_if 'git ls-remote', cwd: new_resource.destination # permission check
   end
 end
 

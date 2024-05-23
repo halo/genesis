@@ -26,3 +26,7 @@ Style/Documentation:
 # Questionable, to say the least. Abandoned for Ruby 3 and then unknown.
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+# App ids for MAS are easier to google and copy-paste if kept together.
+Style/NumericLiterals:
+  Enabled: false

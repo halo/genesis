@@ -1,19 +1,19 @@
-Genesis.users do |user|
+Genesis.users do |account|
   execute 'Hide ~/Applications' do
-    command "chflags hidden #{user.paths.applications}"
-    not_if "ls -lOd #{user.paths.applications} | grep hidden"
-    only_if { user.paths.applications.directory? }
+    command "chflags hidden #{account.paths.applications}"
+    not_if "ls -lOd #{account.paths.applications} | grep hidden"
+    only_if { account.paths.applications.directory? }
   end
 
   execute 'Hide ~/Public' do
-    command "chflags hidden #{user.paths.public}"
-    not_if "ls -lOd #{user.paths.public} | grep hidden"
+    command "chflags hidden #{account.paths.public}"
+    not_if "ls -lOd #{account.paths.public} | grep hidden"
   end
 
-  if user.orange?
+  if account.orange?
     execute 'Reveal ~/Library' do
-      command "chflags nohidden #{user.paths.library}"
-      only_if "ls -lOd #{user.paths.library} | grep hidden"
+      command "chflags nohidden #{account.paths.library}"
+      only_if "ls -lOd #{account.paths.library} | grep hidden"
     end
   end
 end

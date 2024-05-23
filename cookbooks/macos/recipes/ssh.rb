@@ -1,18 +1,18 @@
-Genesis.users do |user|
-  directory user.paths.ssh.to_s do
-    owner user.username
+Genesis.users do |account|
+  directory account.paths.ssh.to_s do
+    owner account.username
     group 'staff'
     mode '0700'
   end
 
-  file user.paths.ssh.join('config').to_s do
-    owner user.username
+  file account.paths.ssh.join('config').to_s do
+    owner account.username
     group 'staff'
     mode '0644'
   end
 
-  file user.paths.ssh.join('authorized_keys').to_s do
-    owner user.username
+  file account.paths.ssh.join('authorized_keys').to_s do
+    owner account.username
     group 'staff'
     mode '0644'
   end
