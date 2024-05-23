@@ -21,7 +21,7 @@ Genesis.users do |account|
 
   execute "install ruby #{version}" do
     command "#{build_executable} #{version} #{ruby_install_dir}"
-    creates rbenv_root.join('versions', version, 'bin').to_s
+    creates ruby_install_dir.join('bin').to_s
     user account.username
     group 'staff'
     only_if { build_executable.executable? }
