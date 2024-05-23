@@ -9,30 +9,22 @@ if Genesis.users.any?(&:opinionated?)
     macos_binary = account.paths.dotfiles.join('macos/bin/macos')
     rbenv_executable = Homebrew.bin_path.join('rbenv')
     ruby_version = node[:rbenv][:ruby]
-    rbenv_init = %|eval "$(#{rbenv_executable} init - zsh)"; rbenv shell #{ruby_version}|
+    rbenv_init = %|eval "$(#{rbenv_executable} init - zsh)"; #{rbenv_executable} shell #{ruby_version}|
 
-    execute 'run dotfiles' do
+    execute "run #{account.username} dotfiles" do
       environment(lazy { { RBENV_ROOT: account.paths.rbenv.to_s, HOME: account.paths.home.to_s } })
-      cwd account.paths.home.to_s
       command %(#{rbenv_init}; #{dotfiles_binary})
       user account.username
       group 'staff'
       only_if { rbenv_executable.executable? }
     end
 
-    execute 'run userlevel configuration' do
-      environment(lazy { { RBENV_ROOT: account.paths.rbenv.to_s, HOME: account.paths.home.to_s } })
-      cwd account.paths.home.to_s
-      command %(#{rbenv_init}; #{dotfiles_binary})
-      user account.username
-      group 'staff'
-      only_if { rbenv_executable.executable? }
-    end
-
-    execute 'run root configuration' do
-      environment(lazy { { RBENV_ROOT: account.paths.rbenv.to_s, HOME: account.paths.home.to_s } })
-      command %(#{rbenv_init}; #{macos_binary} --only-sudo)
-      only_if { rbenv_executable.executable? }
+    if account.username == 'admin'
+      execute "run #{account.username} root configuration" do
+        environment(lazy { { RBENV_ROOT: account.paths.rbenv.to_s, HOME: account.paths.home.to_s } })
+        command %(#{rbenv_init}; #{macos_binary} --only-sudo)
+        only_if { rbenv_executable.executable? }
+      end
     end
   end
 end
