@@ -33,6 +33,7 @@ if [[ $* != *--skip-brew* ]]; then
 fi
 
 echo "Running Genesis..."
+export PATH="/opt/homebrew/bin:$PATH" # For chef to find `brew`.
 sudo /opt/chef/bin/chef-solo --chef-license=accept --config $(dirname $(dirname "$0"))/config.rb
 
 YELLOW='\033[0;33m'
