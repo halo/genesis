@@ -30,6 +30,14 @@ module Genesis
       home.join('.ssh')
     end
 
+    def rbenv
+      home.join('.rbenv')
+    end
+
+    def dotfiles
+      home.join('.dotfiles')
+    end
+
     def by_host
       home.join('Library/Preferences/ByHost')
     end

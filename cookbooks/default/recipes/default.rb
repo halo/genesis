@@ -9,4 +9,4 @@ include_recipe 'rbenv'
 include_recipe 'mas'
 
 # Can only run after ruby was installed
-# include_recipe 'dotfiles::run'
+include_recipe 'dotfiles::run'
