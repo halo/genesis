@@ -26,8 +26,12 @@ module Genesis
       username == 'green'
     end
 
+    def purple?
+      username == 'purple'
+    end
+
     def opinionated?
-      orange? || green?
+      orange? || green? || purple?
     end
   end
 end

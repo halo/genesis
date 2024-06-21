@@ -1,5 +1,5 @@
 Genesis.users do |account|
-  next unless account.orange? || account.green?
+  next unless account.opinionated?
 
   rbenv_root = account.paths.home.join('.rbenv')
 

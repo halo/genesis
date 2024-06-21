@@ -1,5 +1,5 @@
 Genesis.users do |account|
-  next unless account.orange? || account.green?
+  next unless account.opinionated?
 
   mas_binary = Homebrew.bin_path.join('mas')
 
