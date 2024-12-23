@@ -1,3 +1,5 @@
+# See https://developer.apple.com/documentation/devicemanagement/restrictions
+
 profile_hash = {
   'PayloadDisplayName' => 'OS Restrictions',
   'PayloadRemovalDisallowed' => false,
@@ -15,22 +17,33 @@ profile_hash = {
       'PayloadUUID' => '325589E7-246A-4DDB-AE9A-FA398B828B39',
       'PayloadVersion' => 1,
       'PayloadEnabled' => true,
-      allowAssistant: false, # Disable Siri
+      allowAssistant: false,
       allowCloudAddressBook: false,
-      allowCloudBackup: false,
+      allowCloudBackup: false, # Supervised
       allowCloudBookmarks: false,
       allowCloudCalendar: false,
       allowCloudDesktopAndDocuments: false,
-      allowCloudDocumentSync: false, # (Deprecated on unsupervised devices)
+      allowCloudDocumentSync: false, # Supervised
       allowCloudFreeform: false,
       allowCloudKeychainSync: false,
       allowCloudMail: false,
       allowCloudNotes: false,
       allowCloudPhotoLibrary: false,
+      allowCloudPrivateRelay: false,
       allowCloudReminders: false,
-      allowDiagnostic: false, # Disable Telemetry
+      allowDiagnosticSubmission: false,
+      allowDiagnosticSubmissionModification: false, # Supervised
+      allowExternalIntelligenceIntegrations: false, # Supervised
+      allowExternalIntelligenceIntegrationsSignIn: false, # Supervised
+      allowGenmoji: false, # Supervised
+      allowImagePlayground: false, # Supervised
+      allowImageWand: false, # Supervised
+      allowMailPrivacyProtection: false, # Supervised
       allowManagedAppsCloudSync: false,
-      allowSpotlightInternetResults: false, # Supervised only?
+      allowSpotlightInternetResults: false, # Supervised
+      allowWritingTools: false, # Supervised
+      forceOnDeviceOnlyDictation: true,
+      forceOnDeviceOnlyTranslation: true,
       safariAllowAutoFill: false,
     }
   ]
