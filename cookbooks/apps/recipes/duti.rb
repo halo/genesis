@@ -1,4 +1,4 @@
-duti_executable_path = Homebrew.bin_path.join 'duti'
+duti_executable_path = ::Homebrew.bin_path.join 'duti'
 
 Genesis.users do |account|
   duti_configuration_file = account.paths.home.join('.duti')

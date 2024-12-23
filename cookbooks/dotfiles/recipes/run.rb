@@ -7,7 +7,7 @@ if Genesis.users.any?(&:opinionated?)
   Genesis.users do |account|
     dotfiles_binary = account.paths.dotfiles.join('bin/dotfiles')
     macos_binary = account.paths.dotfiles.join('macos/bin/macos')
-    rbenv_executable = Homebrew.bin_path.join('rbenv')
+    rbenv_executable = ::Homebrew.bin_path.join('rbenv')
     ruby_version = node[:rbenv][:ruby]
     rbenv_init = %|eval "$(#{rbenv_executable} init - zsh)"; #{rbenv_executable} shell #{ruby_version}|
 

@@ -1,7 +1,7 @@
 Genesis.users do |account|
   next unless account.opinionated?
 
-  mas_binary = Homebrew.bin_path.join('mas')
+  mas_binary = ::Homebrew.bin_path.join('mas')
 
   node[:mas][:apps].each do |app|
     execute "install #{app}" do

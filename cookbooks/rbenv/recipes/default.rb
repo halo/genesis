@@ -17,7 +17,7 @@ Genesis.users do |account|
 
   version = node[:rbenv][:ruby]
   ruby_install_dir = rbenv_root.join('versions', version)
-  build_executable = Homebrew.bin_path.join('ruby-build')
+  build_executable = ::Homebrew.bin_path.join('ruby-build')
 
   execute "install ruby #{version}" do
     command "#{build_executable} #{version} #{ruby_install_dir}"
