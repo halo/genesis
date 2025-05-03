@@ -2,6 +2,7 @@
 default[:homebrew][:formulae] = %w[
   autoconf
   autojump
+  bash
   cmake
   duti
   ffmpeg
