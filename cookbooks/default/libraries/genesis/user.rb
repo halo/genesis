@@ -30,7 +30,7 @@ module Genesis
       username == 'purple'
     end
 
-    def silver
+    def silver?
       username == 'silver'
     end
 
