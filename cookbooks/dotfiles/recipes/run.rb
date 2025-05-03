@@ -13,19 +13,21 @@ if Genesis.users.any?(&:opinionated?)
     ruby_version = node[:rbenv][:ruby]
     rbenv_init = %|eval "$(#{rbenv_executable} init - zsh)"; #{rbenv_executable} shell #{ruby_version}|
 
-    directory bundle_config_path.to_s do
-      owner account.username
-      group 'staff'
-      mode '0755'
-    end
+    if account.username == 'admin'
+      directory bundle_config_path.to_s do
+        owner account.username
+        group 'staff'
+        mode '0755'
+      end
 
-    template bundle_config_file.to_s do
-      source 'bundle_config.yml.erb'
-      owner account.username
-      group 'staff'
-      mode '0644'
-      variables(bundle_path: vendor_bundle)
-      action :create
+      template bundle_config_file.to_s do
+        source 'bundle_config.yml.erb'
+        owner account.username
+        group 'staff'
+        mode '0644'
+        variables(bundle_path: vendor_bundle)
+        action :create
+      end
     end
 
     execute "run #{account.username} dotfiles" do
