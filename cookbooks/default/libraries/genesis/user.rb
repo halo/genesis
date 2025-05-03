@@ -34,8 +34,12 @@ module Genesis
       username == 'silver'
     end
 
+    def admin?
+      username == 'admin'
+    end
+
     def opinionated?
-      orange? || green? || purple? || silver?
+      admin? || orange? || green? || purple? || silver?
     end
   end
 end
