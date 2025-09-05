@@ -1,15 +1,20 @@
 default[:cask][:apps] = %w[
   1password
   cyberduck
+  font-hack-nerd-font
   font-inconsolata
   font-roboto
   font-roboto-condensed
   font-roboto-mono
   google-chrome
   iterm2
+  omnidisksweeper
   raycast
   signal
+  telegram
   syncthing
   tor-browser
+  ungoogled-chromium
   visual-studio-code
+  zoom
 ]

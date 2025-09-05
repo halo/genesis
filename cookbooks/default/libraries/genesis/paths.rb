@@ -30,8 +30,8 @@ module Genesis
       home.join('.ssh')
     end
 
-    def rbenv
-      home.join('.rbenv')
+    def mise
+      home.join('.local/share/mise')
     end
 
     def dotfiles

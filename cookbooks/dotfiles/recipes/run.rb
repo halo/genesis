@@ -9,9 +9,8 @@ if Genesis.users.any?(&:opinionated?)
     bundle_config_file = bundle_config_path.join('config')
     vendor_bundle = account.paths.dotfiles.join('vendor/bundle')
     macos_binary = account.paths.dotfiles.join('macos/bin/macos')
-    rbenv_executable = ::Homebrew.bin_path.join('rbenv') # rubocop:disable Style/RedundantConstantBase
-    ruby_version = node[:rbenv][:ruby]
-    rbenv_init = %|eval "$(#{rbenv_executable} init - zsh)"; #{rbenv_executable} shell #{ruby_version}|
+    mise_executable = ::Homebrew.bin_path.join('mise') # rubocop:disable Style/RedundantConstantBase
+    mise_init = %|eval "$(#{mise_executable} activate zsh)"|
 
     if account.username == 'admin'
       directory bundle_config_path.to_s do
@@ -32,22 +31,22 @@ if Genesis.users.any?(&:opinionated?)
 
     execute "run #{account.username} dotfiles" do
       cwd '/tmp' # Avoid trying to create `/Gemfile.lock` when another user.
-      environment(lazy { { RBENV_ROOT: account.paths.rbenv.to_s, HOME: account.paths.home.to_s } })
-      command %(#{rbenv_init}; #{dotfiles_binary})
+      environment(lazy { { HOME: account.paths.home.to_s } })
+      # command %(#{mise_init}; #{dotfiles_binary})
+      command %(#{mise_executable} exec -- #{dotfiles_binary})
       user account.username
       group 'staff'
-      only_if { rbenv_executable.executable? }
+      only_if { mise_executable.executable? }
     end
 
-    if account.username == 'admin'
-      execute "run #{account.username} root configuration" do
-        environment(lazy do
-          { RBENV_ROOT: account.paths.rbenv.to_s,
-            HOME: account.paths.home.to_s }
-        end)
-        command %(#{rbenv_init}; #{macos_binary} --only-sudo)
-        only_if { rbenv_executable.executable? }
-      end
-    end
+    # if account.username == 'admin'
+    #   execute "run #{account.username} root configuration" do
+    #     environment(lazy do
+    #       { HOME: account.paths.home.to_s }
+    #     end)
+    #     command %(#{mise_init}; #{macos_binary} --only-sudo)
+    #     only_if { mise_executable.executable? }
+    #   end
+    # end
   end
 end
